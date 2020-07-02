@@ -1,7 +1,7 @@
 var APIKeyOMDB = "70f249c8"
 var APIKeySpoon = "2b38497b30584d7d914e0006ce05f848"
 var APIKeyMovieDB = "4ee2048f656df52ca79c1b3928871706"
-var choice = "Documentary"
+var choice = "Comedy"
 
 
 var getGenreInfo = function (choice) { 
@@ -10,6 +10,7 @@ var getGenreInfo = function (choice) {
     fetch(genreUrl).then(function(response) {
         response.json().then(function(data) {
         console.log(data);
+        
 
         for (var i=0; i < data.genres.length; i++)
             if (data.genres[i].name === choice) {
