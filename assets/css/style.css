@@ -1,6 +1,6 @@
 .title {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 40pt;
+    font-size: 50pt;
     color: white;
 }
 
@@ -12,6 +12,11 @@
     font-weight: bold;
     background-color: gray;
     color: white;
+    border-left: solid white;
+    border-top: solid white;
+    border-right: solid white;
+    border-bottom: solid white;
+    line-height: 1.3;
 }
 
 .intro {
@@ -19,10 +24,26 @@
     margin-left: 15%;
 }
 
+.footer {
+    font-weight: bold;
+    background-color: teal;
+    color: white;
+    border-left: solid white;
+    border-top: solid white;
+    border-right: solid white;
+    border-bottom: solid white;
+}
+
+.outro {
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 3%;
+}
+
 .btn-danger, .btn-warning {
     background-color: teal;
     color: white;
-    border-color: teal;
+    border-color: white;
 }
 
 .btn-danger:hover {
@@ -35,7 +56,6 @@
     border-color: purple;
     color: white;
 }
-
 
 
 #recipeDropdown {
@@ -53,8 +73,12 @@
   }
 
 .dropdown-menu {
-    text-align:center;
+    text-align: center;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    top: 100% !important; 
 }
+
 
 body {
     background-image: url("../images/brickwall.jpg");
@@ -64,8 +88,14 @@ body {
     background-color: gray;
     text-align: center;
     color: white;
+    text-decoration: underline white;
+    font-size: larger;
     padding-top: 10px;
     font-weight: bold;
+    border-left: solid white;
+    border-top: solid white;
+    border-right: solid white;
+    border-bottom: solid white;
 }
 
 .colB {
@@ -73,8 +103,14 @@ body {
     height: 300px;
     text-align: center;
     color: white;
+    text-decoration: underline white;
+    font-size: larger;
     padding-top: 10px;
     font-weight: bold;
+    border-left: solid white;
+    border-top: solid white;
+    border-right: solid white;
+    border-bottom: solid white;
 }
 
 .results {
