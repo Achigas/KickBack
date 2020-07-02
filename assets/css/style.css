@@ -8,6 +8,17 @@
     background-color: teal;
 }
 
+.lead {
+    font-weight: bold;
+    background-color: gray;
+    color: white;
+}
+
+.intro {
+    width: 70%;
+    margin-left: 15%;
+}
+
 .btn-danger, .btn-warning {
     background-color: teal;
     color: white;
@@ -34,17 +45,38 @@
     padding: 10px;
   }
 
-  #movieDropdown {
+#movieDropdown {
     margin-left: 5%;
     grid-row-gap: 50px;
     grid-column-gap: 50px;
     padding: 10px;
   }
 
-  .dropdown-menu {
+.dropdown-menu {
     text-align:center;
 }
 
 body {
     background-image: url("../images/brickwall.jpg");
+}
+
+.colA {
+    background-color: gray;
+    text-align: center;
+    color: white;
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+.colB {
+    background-color: gray;
+    height: 300px;
+    text-align: center;
+    color: white;
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+.results {
+    margin-left: 20%;
 }
