@@ -11,10 +11,24 @@
 .btn-danger, .btn-warning {
     background-color: teal;
     color: white;
+    border-color: teal;
 }
 
+.btn-danger:hover {
+    background-color:purple;
+    border-color: purple;
+}
+
+.btn-warning:hover {
+    background-color:purple;
+    border-color: purple;
+    color: white;
+}
+
+
+
 #recipeDropdown {
-    margin-left: 40%;
+    margin-left: 38%;
     grid-row-gap: 50px;
     grid-column-gap: 50px;
     padding: 10px;
@@ -26,3 +40,11 @@
     grid-column-gap: 50px;
     padding: 10px;
   }
+
+  .dropdown-menu {
+    text-align:center;
+}
+
+body {
+    background-image: url("../images/brickwall.jpg");
+}
