@@ -1,49 +1,147 @@
+var containerMovieEl = document.getElementById("movie-container")
+var containerRecipeEl = document.getElementById("recipe-container")
+
+//API Keys
+var APIKeyOMDB = "70f249c8"
 var APIKeySpoon = "2b38497b30584d7d914e0006ce05f848"
 var APIKeyMovieDB = "4ee2048f656df52ca79c1b3928871706"
+//hardcoded choice input 
+var choice = "Adventure"
 
-///match Genre to ID 
-//Fetch to genres : https://api.themoviedb.org/3/genre/movie/list?api_key=4ee2048f656df52ca79c1b3928871706&language=en-US
+//Display movie poster from MovieDB API URL
+var displayMoviePoster = function (posterId) {
 
+    //posterId identifies unique poster identifier for movie
+    var posterUrl = "https://image.tmdb.org/t/p/w200/" + posterId
 
-var getGenreInfo = function () { 
-    var genreUrl = "https://api.themoviedb.org/3/genre/movie/list?api_key=" + APIKeyMovieDB + "&language=en-US";
-fetch(genreUrl).then(function(response) {
-    response.json().then(function(data) {
-        console.log(data);
+    //create div and img elements to hold image
+    var posterEl = document.createElement("div")
+    var posterImg = document.createElement("img")
+    posterImg.setAttribute("src", posterUrl)
+    
+    //append to the poster element and then the movie container
+    posterEl.appendChild(posterImg);
+    containerMovieEl.appendChild(posterEl);
 
-    })
-    })
 }
 
-var getMovieArray = function (genreID) {
-    var GenreID = "12"
-    pageNumber = Math.floor(Math.random() * Math.floor(500))
-    //var randomMovieID = random number between 1-20
-    var movieArrayURL = "https://api.themoviedb.org/3/discover/movie?api_key=" + APIKeyMovieDB + "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=" + pageNumber + "&with_genres=" + GenreID;
+//Display movie information like Name, run time , etc 
+var displayMovieInfo = function (data) {
+
+    var movieTitle = data.Title
+    var moviePlot = data.Plot
+    var movieActors = data.Actors
+    var movieYear = data.Year
+    var movieRuntime = data.Runtime
+    var movieRating = data.Rated 
+    
+    console.log(movieTitle)
+    console.log(moviePlot)
+    console.log(movieRating)
+
+    //create elements to display movie data
+    var movieInfoEl = document.createElement("div");
+    var movieTitleEl = document.createElement("h2");
+    var moviePlotEl = document.createElement("p");
+    var movieRuntimeEl = document.createElement("p");
+    var movieRatingEl = document.createElement("p");
+    var movieYearEl = document.createElement("p");
+
+    //add movie data to HTML elements
+    movieTitleEl.textContent = movieTitle;
+    moviePlotEl.textContent = moviePlot;
+    movieRuntimeEl.textContent = "Runtime: " + movieRuntime;
+    movieRatingEl.textContent = "Rating: " + movieRating;
+    movieYearEl.textContent = "Year: " + movieYear;
+
+    //Append to div section
+    movieInfoEl.appendChild(movieTitleEl);
+    movieInfoEl.appendChild(moviePlotEl)
+    movieInfoEl.appendChild(movieRuntimeEl);
+    movieInfoEl.appendChild(movieRatingEl);
+    movieInfoEl.appendChild(movieYearEl);
+
+    //append to movie container
+    containerMovieEl.appendChild(movieInfoEl)
+
+}
+
+//pass in genre choice to get genre IDs from MovieDB API
+var getGenreInfo = function (choice) { 
+    var genreUrl = "https://api.themoviedb.org/3/genre/movie/list?api_key=" + APIKeyMovieDB + "&language=en-US";
+
+    fetch(genreUrl).then(function(response) {
+        response.json().then(function(data) {
+        console.log(data);
+        
+        //for loop to find the ID for matching choice
+        for (var i=0; i < data.genres.length; i++)
+            if (data.genres[i].name === choice) {
+                var genreId = data.genres[i].id
+            }
+
+            //get array of movies with that genreID
+            getMovieArray(genreId)
+    });
+  });
+};
+
+//Movie array
+var getMovieArray = function (genreId) {
+    //random page -- organized from most to least popular - 50 is accessing top 1000 movies - can be variable
+    pageNumber = Math.floor(Math.random() * Math.floor(50))
+    console.log(genreId)
+
+    //fetching movies what genre
+    var movieArrayURL = "https://api.themoviedb.org/3/discover/movie?api_key=" + APIKeyMovieDB + "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=" + pageNumber + "&with_genres=" + genreId;
     fetch(movieArrayURL).then(function(response) {
         response.json().then(function(data) {
             console.log(data);
-
+        
+        //get a random movie from the random page
         randomMovie = Math.floor(Math.random() * Math.floor(20))
+        
+        var movieId = data.results[randomMovie].id
+        var posterId = data.results[randomMovie].poster_path
 
-        var movieTitle = data.results[randomMovie].title
-        var moviePlot = data.results[randomMovie].overview
+        displayMoviePoster(posterId)
+        getMovieInfo(movieId)
+        });
+    });
+};
 
-        displayMovieInfo(movieTitle, moviePlot)
-    })
+//Movie information from the Movie DB with movie ID. This will get a OMDB/IMDB movie ID.
+var getMovieInfo = function (movieId) {
 
+    var getMovieDetailsUrl = "https://api.themoviedb.org/3/movie/" + movieId + "?api_key=" + APIKeyMovieDB + "&language=en-US";
+    fetch(getMovieDetailsUrl).then(function(response) {
+        response.json().then(function(data) {
+            console.log(data);
 
-})
-}
+    idIMDB = data.imdb_id;
 
-var displayMovieInfo = function (title,plot) {
-    console.log(title)
-    console.log(plot)
+    getIMDBinfo(idIMDB);
 
-}
-//getGenreInfo()
-getMovieArray()
+    });
+    });
+};
 
+//call to OMDB for cleaner data and synopsis 
+var getIMDBinfo = function (idIMDB) {
+    var getMovieInfoIMDBUrl = "http://www.omdbapi.com/?i=" + idIMDB + "&apikey=" + APIKeyOMDB;
+    fetch(getMovieInfoIMDBUrl).then(function(response) {
+        response.json().then(function(data) {
+            console.log(data);
+
+    displayMovieInfo(data)
+
+    
+        });
+    });
+
+};
+
+getGenreInfo(choice)
 
 
 var getRandomRecipe = function () {
@@ -81,16 +179,31 @@ var displayFoodRecipe = function(data) {
     var foodImage = data.image
     var foodSource = data.sourceUrl
     console.log(foodTitle, timePrep, foodImage, foodSource)
+
+    var recipeInfoEl = document.createElement("div");
+    var recipeNameEl = document.createElement("h2");
+    var recipeSourceLink = document.createElement("a");
+    var recipeImageEl = document.createElement("img");
+    var recipePreptimeEl = document.createElement("p");
+    
+    recipeSourceLink.setAttribute("href", foodSource)
+    recipeImageEl.setAttribute("src", foodImage)
+    recipeSourceLink.appendChild(recipeImageEl)
+
+    recipeNameEl.textContent = foodTitle;
+    recipePreptimeEl.textContent = "Prep time: " + timePrep + "  minutes";
+    
+    recipeInfoEl.appendChild(recipeNameEl)
+    recipeInfoEl.appendChild(recipeSourceLink)
+    recipeInfoEl.appendChild(recipePreptimeEl)
+    containerRecipeEl.appendChild(recipeInfoEl)
+
+
+
 }
 
 getRandomRecipe();
 
-//var displayFoodRecipe = function (foodName, foodRecipe, foodImage) {
-    //console.log(foodName)
-    //console.log(foodRecipe)
-    //console.log(foodImage)
-//}
-//displayFoodRecipe()
 
 
 
