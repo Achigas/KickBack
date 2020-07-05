@@ -1,4 +1,5 @@
 var containerMovieEl = document.getElementById("movie-container")
+var containerRecipeEl = document.getElementById("recipe-container")
 
 //API Keys
 var APIKeyOMDB = "70f249c8"
@@ -40,7 +41,7 @@ var displayMovieInfo = function (data) {
 
     //create elements to display movie data
     var movieInfoEl = document.createElement("div");
-    var movieTitleEl = document.createElement("h2");
+    var movieTitleEl = document.createElement("h3");
     var moviePlotEl = document.createElement("p");
     var movieRuntimeEl = document.createElement("p");
     var movieRatingEl = document.createElement("p");
@@ -55,10 +56,15 @@ var displayMovieInfo = function (data) {
 
     //Append to div section
     movieInfoEl.appendChild(movieTitleEl);
-    movieInfoEl.appendChild(moviePlotEl)
+    movieInfoEl.appendChild(moviePlotEl);
     movieInfoEl.appendChild(movieRuntimeEl);
     movieInfoEl.appendChild(movieRatingEl);
     movieInfoEl.appendChild(movieYearEl);
+    movieTitleEl.setAttribute("class","movieTitle")
+    moviePlotEl.setAttribute("class","moviePlot")
+    movieRuntimeEl.setAttribute("class","movieExtraInfo")
+    movieRatingEl.setAttribute("class","movieExtraInfo")
+    movieYearEl.setAttribute("class","movieExtraInfo")
 
     //append to movie container
     containerMovieEl.appendChild(movieInfoEl)
@@ -141,3 +147,67 @@ var getIMDBinfo = function (idIMDB) {
 };
 
 getGenreInfo(choice)
+
+
+var getRandomRecipe = function () {
+    var offsetId = Math.floor(Math.random() * Math.floor(200));
+    var foodType = "chinese";
+    var typeFoodUrl = "https://api.spoonacular.com/recipes/complexSearch?cuisine=" + foodType + "&number=100&apiKey=" + APIKeySpoon + "&offset=" + offsetId; 
+    fetch(typeFoodUrl).then(function(response) {
+        response.json().then(function(data) {
+            console.log(data);
+            
+            randomFoodId = Math.floor(Math.random() * Math.floor(100))
+
+            var foodId = data.results[randomFoodId].id;
+           
+            
+            getRecipeInfo(foodId);
+        })
+    })
+} 
+
+
+var getRecipeInfo = function(foodId){
+    var recInfoUrl ="https://api.spoonacular.com/recipes/" + foodId + "/information?apiKey=" + APIKeySpoon;
+    fetch(recInfoUrl).then(function(response) {
+        response.json().then(function(data) {
+            console.log(data);
+            displayFoodRecipe(data);
+})
+})
+}
+
+var displayFoodRecipe = function(data) {
+    var foodTitle = data.title
+    var timePrep = data.readyInMinutes
+    var foodImage = data.image
+    var foodSource = data.sourceUrl
+    console.log(foodTitle, timePrep, foodImage, foodSource)
+
+    var recipeInfoEl = document.createElement("div");
+    var recipeNameEl = document.createElement("h3");
+    var recipeSourceLink = document.createElement("a");
+    var recipeImageEl = document.createElement("img");
+    var recipePreptimeEl = document.createElement("p");
+    
+    recipeSourceLink.setAttribute("href", foodSource)
+    recipeImageEl.setAttribute("src", foodImage)
+    recipeImageEl.setAttribute("class", "recipeImage")
+    recipeNameEl.setAttribute("class", "recipeName")
+    recipePreptimeEl.setAttribute("class", "recipePreptime")
+    recipeSourceLink.appendChild(recipeImageEl)
+
+    recipeNameEl.textContent = foodTitle;
+    recipePreptimeEl.textContent = "Prep time: " + timePrep + "  minutes";
+    
+    recipeInfoEl.appendChild(recipeNameEl)
+    recipeInfoEl.appendChild(recipePreptimeEl)
+    recipeInfoEl.appendChild(recipeSourceLink)
+    containerRecipeEl.appendChild(recipeInfoEl)
+
+
+
+}
+
+getRandomRecipe();
