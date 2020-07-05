@@ -41,7 +41,7 @@ var displayMovieInfo = function (data) {
 
     //create elements to display movie data
     var movieInfoEl = document.createElement("div");
-    var movieTitleEl = document.createElement("h2");
+    var movieTitleEl = document.createElement("h3");
     var moviePlotEl = document.createElement("p");
     var movieRuntimeEl = document.createElement("p");
     var movieRatingEl = document.createElement("p");
@@ -56,10 +56,15 @@ var displayMovieInfo = function (data) {
 
     //Append to div section
     movieInfoEl.appendChild(movieTitleEl);
-    movieInfoEl.appendChild(moviePlotEl)
+    movieInfoEl.appendChild(moviePlotEl);
     movieInfoEl.appendChild(movieRuntimeEl);
     movieInfoEl.appendChild(movieRatingEl);
     movieInfoEl.appendChild(movieYearEl);
+    movieTitleEl.setAttribute("class","movieTitle")
+    moviePlotEl.setAttribute("class","moviePlot")
+    movieRuntimeEl.setAttribute("class","movieExtraInfo")
+    movieRatingEl.setAttribute("class","movieExtraInfo")
+    movieYearEl.setAttribute("class","movieExtraInfo")
 
     //append to movie container
     containerMovieEl.appendChild(movieInfoEl)
@@ -181,21 +186,27 @@ var displayFoodRecipe = function(data) {
     console.log(foodTitle, timePrep, foodImage, foodSource)
 
     var recipeInfoEl = document.createElement("div");
-    var recipeNameEl = document.createElement("h2");
+    var recipeNameEl = document.createElement("h3");
+
     var recipeSourceLink = document.createElement("a");
     var recipeImageEl = document.createElement("img");
     var recipePreptimeEl = document.createElement("p");
     
     recipeSourceLink.setAttribute("href", foodSource)
     recipeImageEl.setAttribute("src", foodImage)
+    recipeImageEl.setAttribute("class", "recipeImage")
+    recipeNameEl.setAttribute("class", "recipeName")
+    recipePreptimeEl.setAttribute("class", "recipePreptime")
+
     recipeSourceLink.appendChild(recipeImageEl)
 
     recipeNameEl.textContent = foodTitle;
     recipePreptimeEl.textContent = "Prep time: " + timePrep + "  minutes";
     
     recipeInfoEl.appendChild(recipeNameEl)
-    recipeInfoEl.appendChild(recipeSourceLink)
     recipeInfoEl.appendChild(recipePreptimeEl)
+    recipeInfoEl.appendChild(recipeSourceLink)
+
     containerRecipeEl.appendChild(recipeInfoEl)
 
 
@@ -203,7 +214,5 @@ var displayFoodRecipe = function(data) {
 }
 
 getRandomRecipe();
-
-
 
 

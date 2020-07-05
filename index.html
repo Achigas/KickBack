@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Purple+Purse&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Kickback</title>
 </head>
@@ -11,45 +12,65 @@
     <header>
     <div class="jumbotron jumbotron-fluid" id="header">
         <div class="container.fluid">
-          <h1 class="title text-center">Kickback</h1>
+          <h1 class="title text-center">KickBack!</h1>
+          <p class="lead text-center"> Have to stay in? No problem!  <br> Make a night of it with customized dinner recipes and movie suggestions.</p>
         </div>
     </div>
     </header>
     <main>
-     <div class="intro">
-     <p class="lead text-center"> Have to stay in? No problem!  <br> Make a night of it with customized dinner recipes and movie suggestions.</p>
+      <div class="pictures">
+        <img class="heroA" src="./assets/images/family.jpg" alt="kickbackheroimage">
+        <img class="heroB" src="./assets/images/tv.jpg" alt="kickbackheroimage">
       </div>
-      <div class="btn-group" id="recipeDropdown">
-        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Recipes
-        </button>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Horror</a>
-          <a class="dropdown-item" href="#">Comedy</a>
-          <a class="dropdown-item" href="#">Romance</a>
+      <div class="options">
+        <div class="btn-group" id="recipeDropdown">
+          <button type="button" class="btn-recipe  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Recipes
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">TBD</a>
+            <a class="dropdown-item" href="#">TBD</a>
+            <a class="dropdown-item" href="#">TBD</a>
+          </div>
         </div>
-      </div>
-      <div class="btn-group" id="movieDropdown">
-        <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Movies
-        </button>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Easy</a>
-          <a class="dropdown-item" href="#">Intermediate</a>
-          <a class="dropdown-item" href="#">Challenging</a>
+        <div class="btn-group" id="movieDropdown">
+          <button type="button" class="btn-movie  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Movies
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" id= "action" href="#">Action</a>
+            <a class="dropdown-item" id= "adventure" href="#">Adventure</a>
+            <a class="dropdown-item" id= "animation" href="#">Animation</a>
+            <a class="dropdown-item" id= "comedy" href="#">Comedy</a>
+            <a class="dropdown-item" id= "crime" href="#">Crime</a>
+            <a class="dropdown-item" id= "documentary" href="#">Documentary</a>
+            <a class="dropdown-item" id= "drama" href="#">Drama</a>
+            <a class="dropdown-item" id= "family" href="#">Family</a>
+            <a class="dropdown-item" id= "fantasy" href="#">Fantasy</a>
+            <a class="dropdown-item" id= "history" href="#">History</a>
+            <a class="dropdown-item" id= "horror" href="#">Horror</a>
+            <a class="dropdown-item" id= "music" href="#">Music</a>
+            <a class="dropdown-item" id= "mystery" href="#">Mystery</a>
+            <a class="dropdown-item" id= "romance" href="#">Romance</a>
+            <a class="dropdown-item" id= "scienceFiction" href="#">Science Fiction</a>
+            <a class="dropdown-item" id= "tvMovie" href="#">TV Movie</a>
+            <a class="dropdown-item" id= "thriller" href="#">Thriller</a>
+            <a class="dropdown-item" id= "war" href="#">War</a>
+            <a class="dropdown-item" id= "western" href="#">Western </a>
+          </div>
         </div>
       </div>
       <div class="results">
-        <div class="row row-cols-sm-6 row-cols-lg-8">
-          <div id="recipe-container" class="colA col-sm-4 col-md-5 col-lg-4">Recipes</div>
-          <div id="movie-container" class="colB col-sm-6 col-md-5 offset-md-5 col-lg-4 offset-lg-1">Movies</div>
+        <div class="row row-cols-sm-6 row-cols-lg-6">
+          <div id="recipe-container" class="colA col-sm-6 col-md-5 offset-md-5 col-lg-4 offset-lg-1"></div>
+          <div id="movie-container" class="colB col-sm-6 col-md-5 offset-md-5 col-lg-4 offset-lg-1"></div>
         </div>
       </div>
     </div>
-    <div class="outro">
-        <p class="footer text-center">Now, KickBack,relax and enjoy the show!</p>
-    </div>
     </main>
+    <footer>
+        <p class="footer text-center">KickBack! + Relax! + Enjoy! <span class="copy">&copy;2020</span></p>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
