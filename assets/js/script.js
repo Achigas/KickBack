@@ -143,10 +143,12 @@ var getIMDBinfo = function (idIMDB) {
 
 getGenreInfo(choice)
 
+// NEEDS TO SELECT CUISINE TYPE, THEN GET RANDOM RECIPE UNDER CUISINE TYPE.
 
 var getRandomRecipe = function () {
     var offsetId = Math.floor(Math.random() * Math.floor(200));
-    var foodType = "chinese";
+    // var foodType = document.getElementById("recipeDropdown").val();
+    var foodType = "mediterranean";
     var typeFoodUrl = "https://api.spoonacular.com/recipes/complexSearch?cuisine=" + foodType + "&number=100&apiKey=" + APIKeySpoon + "&offset=" + offsetId; 
     fetch(typeFoodUrl).then(function(response) {
         response.json().then(function(data) {
@@ -197,8 +199,6 @@ var displayFoodRecipe = function(data) {
     recipeInfoEl.appendChild(recipeSourceLink)
     recipeInfoEl.appendChild(recipePreptimeEl)
     containerRecipeEl.appendChild(recipeInfoEl)
-
-
 
 }
 
