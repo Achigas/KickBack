@@ -187,6 +187,7 @@ var displayFoodRecipe = function(data) {
 
     var recipeInfoEl = document.createElement("div");
     var recipeNameEl = document.createElement("h3");
+
     var recipeSourceLink = document.createElement("a");
     var recipeImageEl = document.createElement("img");
     var recipePreptimeEl = document.createElement("p");
@@ -196,6 +197,7 @@ var displayFoodRecipe = function(data) {
     recipeImageEl.setAttribute("class", "recipeImage")
     recipeNameEl.setAttribute("class", "recipeName")
     recipePreptimeEl.setAttribute("class", "recipePreptime")
+
     recipeSourceLink.appendChild(recipeImageEl)
 
     recipeNameEl.textContent = foodTitle;
@@ -204,6 +206,7 @@ var displayFoodRecipe = function(data) {
     recipeInfoEl.appendChild(recipeNameEl)
     recipeInfoEl.appendChild(recipePreptimeEl)
     recipeInfoEl.appendChild(recipeSourceLink)
+
     containerRecipeEl.appendChild(recipeInfoEl)
 
 
@@ -211,3 +214,5 @@ var displayFoodRecipe = function(data) {
 }
 
 getRandomRecipe();
+
+
