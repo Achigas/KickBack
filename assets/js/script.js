@@ -1,15 +1,19 @@
 var containerMovieEl = document.getElementById("movie-container")
 var containerRecipeEl = document.getElementById("recipe-container")
+var buttonKickback = document.getElementById("kickback-submit")
 
 //API Keys
 var APIKeyOMDB = "70f249c8"
 var APIKeySpoon = "2b38497b30584d7d914e0006ce05f848"
 var APIKeyMovieDB = "4ee2048f656df52ca79c1b3928871706"
-//hardcoded choice input 
-var choice = "Adventure"
+//choice input 
+//var choiceMovie = document.getElementById("movie-dropdown").value;
+//var choiceRecipe = document.getElementById("recipe-dropdown").value;
 
 //Display movie poster from MovieDB API URL
 var displayMoviePoster = function (posterId) {
+
+    containerMovieEl.textContent = ""
 
     //posterId identifies unique poster identifier for movie
     var posterUrl = "https://image.tmdb.org/t/p/w200/" + posterId
@@ -141,8 +145,6 @@ var getIMDBinfo = function (idIMDB) {
 
 };
 
-getGenreInfo(choice)
-
 
 var getRandomRecipe = function () {
     var offsetId = Math.floor(Math.random() * Math.floor(200));
@@ -174,6 +176,9 @@ var getRecipeInfo = function(foodId){
 }
 
 var displayFoodRecipe = function(data) {
+
+    containerRecipeEl.textContent = ""
+
     var foodTitle = data.title
     var timePrep = data.readyInMinutes
     var foodImage = data.image
@@ -202,7 +207,19 @@ var displayFoodRecipe = function(data) {
 
 }
 
-getRandomRecipe();
+
+var generateRandRecMov = function(choiceMov, choiceRec) {
+    event.preventDefault()
+    getRandomRecipe(choiceRec);
+    getGenreInfo(choiceMov);
+}
+
+
+buttonKickback.addEventListener("click", function () {
+    var choiceMovie = document.getElementById("movie-dropdown").value;
+    var choiceRecipe = document.getElementById("recipe-dropdown").value;
+    generateRandRecMov(choiceMovie, choiceRecipe)
+} )
 
 
 

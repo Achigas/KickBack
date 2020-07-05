@@ -20,24 +20,25 @@
      <p class="lead text-center"> Have to stay in? No problem!  <br> Make a night of it with customized dinner recipes and movie suggestions.</p>
       </div>
       <div class="btn-group" id="recipeDropdown">
-        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Recipes
-        </button>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Horror</a>
-          <a class="dropdown-item" href="#">Comedy</a>
-          <a class="dropdown-item" href="#">Romance</a>
-        </div>
+        <select name="recipe-choice" id="recipe-dropdown">
+          <option value="" disabled selected>Recipes</option>
+          <option value="Korean">Korean</option>
+          <option value="American">American</option>
+          <option value="Japanese">Japanese</option>
+          <option value="Chinese">Chinese</option>
+        </select>
       </div>
-      <div class="btn-group" id="movieDropdown">
-        <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Movies
-        </button>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Easy</a>
-          <a class="dropdown-item" href="#">Intermediate</a>
-          <a class="dropdown-item" href="#">Challenging</a>
-        </div>
+      <div class="btn-group" id="kickback-submit">
+        <button type="submit" class="btn btn-warning">KickBack!</button>
+      </div>
+      <div class="btn-group" id="movieeDropdown">
+        <select name="movie-choice" id="movie-dropdown">
+          <option value="" disabled selected>Movie</option>
+          <option value="Comedy">Comedy</option>
+          <option value="Adventure">Adventure</option>
+          <option value="Action">Action</option>
+          <option value="Documentary">Documentary</option>
+        </select>
       </div>
       <div class="results">
         <div class="row row-cols-sm-6 row-cols-lg-8">
