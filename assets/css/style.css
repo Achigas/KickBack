@@ -66,7 +66,10 @@ footer {
     margin-top: 2%;
     margin-bottom: 2%;
 }
-
+/*.btn-group{
+   width: 33%;
+   place-content: center; 
+}*/
 .btn-movie {
     background-color: teal;
     color: white;
@@ -74,7 +77,6 @@ footer {
     border-color: darkmagenta;
     border-width: 8px;
     border-radius: 2%;
-    margin-left: 45%;
 }
 
 .btn-recipe {
@@ -84,9 +86,15 @@ footer {
     border-color: darkmagenta;
     border-width: 8px;
     border-radius: 2%;
-    margin-left: -40%;
 }
-
+.btn-submit {
+    background-color: teal;
+    color: white;
+    font-weight: bold;
+    border-color: darkmagenta;
+    border-width: 8px;
+    border-radius: 2%;
+}
 .btn-movie:hover {
     background-color:darkmagenta;
     border-color: teal;
@@ -94,6 +102,12 @@ footer {
 }
 
 .btn-recipe:hover {
+    background-color:darkmagenta;
+    border-color: teal;
+    color: white;
+}
+
+.btn-submit:hover {
     background-color:darkmagenta;
     border-color: teal;
     color: white;
@@ -109,16 +123,20 @@ footer {
     outline: teal;
 }
 
+.btn-submit:focus{
+    background-color:darkmagenta;
+    outline: teal;
+}
 
 #recipeDropdown {
-    margin-left: 24.5%;
+    margin-left: 0%;
     grid-row-gap: 50px;
     grid-column-gap: 50px;
     padding: 10px;
   }
 
 #movieDropdown {
-    margin-left: 29%;
+    margin-left: 0%;
     grid-row-gap: 50px;
     grid-column-gap: 50px;
     padding: 10px;
