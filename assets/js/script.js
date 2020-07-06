@@ -1,10 +1,12 @@
 var containerMovieEl = document.getElementById("movie-container")
 var containerRecipeEl = document.getElementById("recipe-container")
+var containerRecButtons = document.getElementById("recipe-buttons")
+var containerMovieButtons = document.getElementById("movie-buttons")
 var buttonKickback = document.getElementById("kickback-submit")
 
 //API Keys
 var APIKeyOMDB = "70f249c8"
-var APIKeySpoon = "2b38497b30584d7d914e0006ce05f848"
+var APIKeySpoon = "903cd2ab9ccb463c98f08db9266be15c"
 var APIKeyMovieDB = "4ee2048f656df52ca79c1b3928871706"
 //choice input 
 //var choiceMovie = document.getElementById("movie-dropdown").value;
@@ -73,10 +75,22 @@ var displayMovieInfo = function (data) {
     //append to movie container
     containerMovieEl.appendChild(movieInfoEl)
 
+    var newMovieBtn = document.createElement("btn")
+    newMovieBtn.setAttribute("type", "submit");
+    newMovieBtn.setAttribute("class", "btn-group btn-warning p-2 m-2");
+    newMovieBtn.textContent = "New Movie"
+    newMovieBtn.addEventListener("click", function () {
+        getGenreInfo(document.getElementById("movie-dropdown").value)
+    })
+
+    containerMovieEl.appendChild(newMovieBtn)
+
+
 }
 
 //pass in genre choice to get genre IDs from MovieDB API
 var getGenreInfo = function (choice) { 
+    event.preventDefault()
     var genreUrl = "https://api.themoviedb.org/3/genre/movie/list?api_key=" + APIKeyMovieDB + "&language=en-US";
 
     fetch(genreUrl).then(function(response) {
@@ -152,6 +166,7 @@ var getIMDBinfo = function (idIMDB) {
 
 
 var getRandomRecipe = function (cuisineType) {
+    event.preventDefault()
     var offsetId = Math.floor(Math.random() * Math.floor(200));
     var typeFoodUrl = "https://api.spoonacular.com/recipes/complexSearch?cuisine=" + cuisineType + "&number=100&apiKey=" + APIKeySpoon + "&offset=" + offsetId; 
     fetch(typeFoodUrl).then(function(response) {
@@ -213,6 +228,16 @@ var displayFoodRecipe = function(data) {
 
     containerRecipeEl.appendChild(recipeInfoEl)
 
+    var newRecipeBtn = document.createElement("btn")
+    newRecipeBtn.setAttribute("type", "submit");
+    newRecipeBtn.setAttribute("class", "btn-group btn-warning p-2 m-2");
+    newRecipeBtn.textContent = "New Recipe"
+    newRecipeBtn.addEventListener("click", function () {
+        getRandomRecipe(document.getElementById("recipe-dropdown").value)
+    })
+
+    containerRecipeEl.appendChild(newRecipeBtn)
+
 
 
 }
@@ -220,6 +245,11 @@ var displayFoodRecipe = function(data) {
 
 var generateRandRecMov = function(choiceMov, choiceRec) {
     event.preventDefault()
+
+    var containerResultsEl = document.getElementById("results-container")
+    containerRecipeEl.setAttribute("class","colA col-sm-6 col-md-5 offset-md-5 col-lg-4 offset-lg-1 mb-2")
+    containerMovieEl.setAttribute("class", "colB col-sm-6 col-md-5 offset-md-5 col-lg-4 offset-lg-1 mb-2")
+
     getRandomRecipe(choiceRec);
     getGenreInfo(choiceMov);
 }
