@@ -151,10 +151,9 @@ var getIMDBinfo = function (idIMDB) {
 };
 
 
-var getRandomRecipe = function () {
+var getRandomRecipe = function (cuisineType) {
     var offsetId = Math.floor(Math.random() * Math.floor(200));
-    var foodType = "chinese";
-    var typeFoodUrl = "https://api.spoonacular.com/recipes/complexSearch?cuisine=" + foodType + "&number=100&apiKey=" + APIKeySpoon + "&offset=" + offsetId; 
+    var typeFoodUrl = "https://api.spoonacular.com/recipes/complexSearch?cuisine=" + cuisineType + "&number=100&apiKey=" + APIKeySpoon + "&offset=" + offsetId; 
     fetch(typeFoodUrl).then(function(response) {
         response.json().then(function(data) {
             console.log(data);
