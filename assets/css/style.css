@@ -152,6 +152,11 @@ body {
     background-image: url("../images/brickwall.jpg");
 }
 
+main {
+    text-align: center;
+    text-transform: uppercase;
+}
+
 .row {
     margin-left: -7%;
 }
