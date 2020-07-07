@@ -13,60 +13,70 @@ var APIKeyMovieDB = "4ee2048f656df52ca79c1b3928871706"
 //var choiceRecipe = document.getElementById("recipe-dropdown").value;
 
 //Display movie poster from MovieDB API URL
-var displayMoviePoster = function (posterId) {
+var displayMoviePoster = function (movieTitle, posterId) {
+    console.log(movieTitle)
+    console.log(posterId)
 
     containerMovieEl.textContent = ""
 
     //posterId identifies unique poster identifier for movie
     var posterUrl = "https://image.tmdb.org/t/p/w200/" + posterId
+    console.log(posterUrl)
 
     //create div and img elements to hold image
     var posterEl = document.createElement("div")
+    var movieTitleEl = document.createElement("h3")
     var posterImg = document.createElement("img")
     posterImg.setAttribute("src", posterUrl)
+    movieTitleEl.textContent = movieTitle
     
     //append to the poster element and then the movie container
+    posterEl.appendChild(movieTitleEl);
     posterEl.appendChild(posterImg);
-    containerMovieEl.appendChild(posterEl);
 
+    containerMovieEl.appendChild(posterEl)
+    
 }
 
 //Display movie information like Name, run time , etc 
 var displayMovieInfo = function (data) {
 
-    var movieTitle = data.Title
     var moviePlot = data.Plot
-    var movieActors = data.Actors
     var movieYear = data.Year
     var movieRuntime = data.Runtime
     var movieRating = data.Rated 
-    
-    console.log(movieTitle)
-    console.log(moviePlot)
-    console.log(movieRating)
 
     //create elements to display movie data
     var movieInfoEl = document.createElement("div");
-    var movieTitleEl = document.createElement("h3");
     var moviePlotEl = document.createElement("p");
     var movieRuntimeEl = document.createElement("p");
-    var movieRatingEl = document.createElement("p");
     var movieYearEl = document.createElement("p");
+    var movieRatingEl = document.createElement("p")
+    var movieRatingColor = document.createElement("span")
+    movieRatingColor.textContent = movieRating
+
+        if (movieRating === "R" || movieRating === "TV-MA") {
+            movieRatingColor.setAttribute("class", "bg-danger text-white p-1")
+        } else if (movieRating === "PG-13") {
+            movieRatingColor.setAttribute("class", "bg-warning text-black p-1")
+        } else {
+            movieRatingColor.setAttribute("class", "bg-success text-white p-1")
+        }
+
 
     //add movie data to HTML elements
-    movieTitleEl.textContent = movieTitle;
     moviePlotEl.textContent = moviePlot;
     movieRuntimeEl.textContent = "Runtime: " + movieRuntime;
-    movieRatingEl.textContent = "Rating: " + movieRating;
+    movieRatingEl.textContent = "Rating: ";
     movieYearEl.textContent = "Year: " + movieYear;
 
+    movieRatingEl.appendChild(movieRatingColor)
+
     //Append to div section
-    movieInfoEl.appendChild(movieTitleEl);
     movieInfoEl.appendChild(moviePlotEl);
     movieInfoEl.appendChild(movieRuntimeEl);
     movieInfoEl.appendChild(movieRatingEl);
     movieInfoEl.appendChild(movieYearEl);
-    movieTitleEl.setAttribute("class","movieTitle")
     moviePlotEl.setAttribute("class","moviePlot")
     movieRuntimeEl.setAttribute("class","movieExtraInfo")
     movieRatingEl.setAttribute("class","movieExtraInfo")
@@ -125,9 +135,10 @@ var getMovieArray = function (genreId) {
         randomMovie = Math.floor(Math.random() * Math.floor(20))
         
         var movieId = data.results[randomMovie].id
+        var movieTitle = data.results[randomMovie].title 
         var posterId = data.results[randomMovie].poster_path
 
-        displayMoviePoster(posterId)
+        displayMoviePoster(movieTitle, posterId)
         getMovieInfo(movieId)
         });
     });
