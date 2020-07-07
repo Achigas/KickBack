@@ -176,7 +176,7 @@ var getIMDBinfo = function (idIMDB) {
 
 };
 
-
+// Generating random ID under the cuisine type
 var getRandomRecipe = function (cuisineType) {
     event.preventDefault()
     var offsetId = Math.floor(Math.random() * Math.floor(200));
@@ -195,7 +195,7 @@ var getRandomRecipe = function (cuisineType) {
     })
 } 
 
-
+// Fetching foodIDs
 var getRecipeInfo = function(foodId){
     var recInfoUrl ="https://api.spoonacular.com/recipes/" + foodId + "/information?apiKey=" + APIKeySpoon;
     fetch(recInfoUrl).then(function(response) {
@@ -216,6 +216,7 @@ var displayFoodRecipe = function(data) {
     var foodSource = data.sourceUrl
     console.log(foodTitle, timePrep, foodImage, foodSource)
 
+    //creating element for information needed
     var recipeInfoEl = document.createElement("div");
     var recipeNameEl = document.createElement("h3");
 
@@ -223,6 +224,7 @@ var displayFoodRecipe = function(data) {
     var recipeImageEl = document.createElement("img");
     var recipePreptimeEl = document.createElement("p");
     
+    // linking sourcelink into food image
     recipeSourceLink.setAttribute("href", foodSource)
     recipeImageEl.setAttribute("src", foodImage)
     recipeImageEl.setAttribute("class", "recipeImage")
@@ -234,6 +236,7 @@ var displayFoodRecipe = function(data) {
     recipeNameEl.textContent = foodTitle;
     recipePreptimeEl.textContent = "Prep time: " + timePrep + "  minutes";
     
+    // Appending recipe name, prep time and source link
     recipeInfoEl.appendChild(recipeNameEl)
     recipeInfoEl.appendChild(recipePreptimeEl)
     recipeInfoEl.appendChild(recipeSourceLink)
@@ -256,11 +259,21 @@ var displayFoodRecipe = function(data) {
 
 var generateRandRecMov = function(choiceMov, choiceRec) {
     event.preventDefault()
-    //console.log(choiceMov)
+    
+    // MODALS IF choiceMov or choiceRec is empty
     if (!choiceMov) {
-        console.log("hi")
+        document.getElementById("modal").style.display = "block";
+        document.getElementById("modalText").innerHTML = "Please choose a movie genre!";
     }
-//add here. if choiceMovie is blank, if choiceRecipe is blank, do this //
+    if (!choiceRec) {
+        document.getElementById("modal").style.display = "block";
+        document.getElementById("modalText").innerHTML = "Please choose a cuisine type!";
+    }
+    if (!choiceMov && !choiceRec) {
+        document.getElementById("modal").style.display = "block";
+        document.getElementById("modalText").innerHTML = "Please choose a cuisine type and a movie genre to continue!";
+    }
+
     var containerResultsEl = document.getElementById("results-container")
     containerRecipeEl.setAttribute("class","colA col-sm-6 col-md-5 offset-md-5 col-lg-4 offset-lg-1 mb-2")
     containerMovieEl.setAttribute("class", "colB col-sm-6 col-md-5 offset-md-5 col-lg-4 offset-lg-1 mb-2")
@@ -274,6 +287,22 @@ var generateRandRecMov = function(choiceMov, choiceRec) {
 buttonKickback.addEventListener("click", function () {
     var choiceMovie = document.getElementById("movie-dropdown").value;
     var choiceRecipe = document.getElementById("recipe-dropdown").value;
-    //console.log(choiceMovie)
     generateRandRecMov(choiceMovie, choiceRecipe)
 } )
+
+// X button and CLOSE button
+var button = document.getElementById("close");
+button.onclick = function() {
+    var div = document.getElementById("modal");
+    if (div.style.display !== "none") {
+        div.style.display = "none";
+    }
+};
+
+var button = document.getElementById("ok");
+button.onclick = function() {
+    var div = document.getElementById("modal");
+    if (div.style.display !== "none") {
+        div.style.display = "none";
+    }
+};
