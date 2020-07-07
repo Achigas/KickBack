@@ -14,56 +14,59 @@
         <div class="container.fluid">
           <h1 class="title text-center">KickBack!</h1>
           <p class="lead text-center"> Have to stay in? No problem!  <br> Make a night of it with customized dinner recipes and movie suggestions.</p>
+          <p class="directions"> Pick a recipe and movie category, hit the <span class="name">KickBack</span> button and enjoy!</p>
         </div>
     </div>
     </header>
     <main>
-      <div class="btn-group" id="recipeDropdown">
-        <select name="recipe-choice" id="recipe-dropdown" class="btn-recipe">
-          <option value="" disabled selected>Recipes</option>
-          <option value="African">African</option>
-          <option value="American">American</option>
-          <option value="Cajun">Cajun</option>
-          <option value="Chinese">Chinese</option>
-          <option value="Greek">Greek</option>
-          <option value="Indian">Indian</option>
-          <option value="Italian">Italian</option>
-          <option value="Japanese">Japanese</option>
-          <option value="Korean">Korean</option>
-          <option value="Mediterranean">Mediterranean</option>
-          <option value="Mexican">Mexican</option>
-          <option value="Middle Eastern">Middle Eastern</option>
-          <option value="Southern">Soutern</option>
-          <option value="Spanish">Spanish</option>
-          <option value="Thai">Thai</option>
-          <option value="Vietnamese">Vietnamese</option>
-        </select>
+      <div id="kickback-submit">
+        <button type="submit" class="btn-submit">KickBack!</button>
       </div>
-      <div class="btn-group" id="kickback-submit">
-        <button type="submit" class="btn btn-warning">KickBack!</button>
-      </div>
-      <div class="btn-group" id="movieDropdown">
-        <select name="movie-choice" id="movie-dropdown" class="btn-movie">
-          <option value="" disabled selected>Movie</option>
-          <option value="Action">Action</option>
-          <option value="Adventure">Adventure</option>
-          <option value="Animation">Animation</option>
-          <option value="Comedy">Comedy</option>
-          <option value="Crime">Crime</option>
-          <option value="Documentary">Documentary</option>
-          <option value="Drama">Drama</option>
-          <option value="Horror">Horror</option>
-          <option value="Music">Music</option>
-          <option value="Romance">Romance</option>
-          <option value="Science Fiction">Science Fiction</option>
-          <option value="TV Movie">TV Movie</option>
-          <option value="Thriller">Thriller</option>
-          <option value="War">War</option>
-          <option value="Western">Western</option>
-        </select>
+      <div class="options">
+        <div id="recipeDropdown">
+          <select name="recipe-choice" id="recipe-dropdown" class="btn-recipe options">
+            <option value="" disabled selected>Recipes</option>
+            <option value="African">African</option>
+            <option value="American">American</option>
+            <option value="Cajun">Cajun</option>
+            <option value="Chinese">Chinese</option>
+            <option value="Greek">Greek</option>
+            <option value="Indian">Indian</option>
+            <option value="Italian">Italian</option>
+            <option value="Japanese">Japanese</option>
+            <option value="Korean">Korean</option>
+            <option value="Mediterranean">Mediterranean</option>
+            <option value="Mexican">Mexican</option>
+            <option value="Middle Eastern">Middle Eastern</option>
+            <option value="Southern">Soutern</option>
+            <option value="Spanish">Spanish</option>
+            <option value="Thai">Thai</option>
+            <option value="Vietnamese">Vietnamese</option>
+          </select>
+        </div>
+        <div id="movieDropdown">
+          <select name="movie-choice" id="movie-dropdown" class="btn-movie options">
+            <option value="" disabled selected>Movies</option>
+            <option value="Action">Action</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Animation">Animation</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Crime">Crime</option>
+            <option value="Documentary">Documentary</option>
+            <option value="Drama">Drama</option>
+            <option value="Horror">Horror</option>
+            <option value="Music">Music</option>
+            <option value="Romance">Romance</option>
+            <option value="Science Fiction">Science Fiction</option>
+            <option value="TV Movie">TV Movie</option>
+            <option value="Thriller">Thriller</option>
+            <option value="War">War</option>
+            <option value="Western">Western</option>
+          </select>
+        </div>
       </div>
       <div class="results">
-        <div class="row row-cols-sm-6 row-cols-lg-6" id="results-container">
+        <div class="row row-cols-sm-10 row-cols-lg-2" id="results-container">
           <div id="recipe-container">
             <div id="recipe-buttons"></div>
           </div>
@@ -72,7 +75,7 @@
           </div>
         </div>
       </div>
-      <div class="pictures">
+      <div id="pictures">
         <img class="heroA" src="./assets/images/family.jpg" alt="kickbackheroimage">
         <img class="heroB" src="./assets/images/tv.jpg" alt="kickbackheroimage">
       </div>

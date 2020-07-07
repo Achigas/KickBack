@@ -3,6 +3,7 @@ var containerRecipeEl = document.getElementById("recipe-container")
 var containerRecButtons = document.getElementById("recipe-buttons")
 var containerMovieButtons = document.getElementById("movie-buttons")
 var buttonKickback = document.getElementById("kickback-submit")
+var pictures = document.getElementById("pictures")
 
 //API Keys
 var APIKeyOMDB = "70f249c8"
@@ -14,8 +15,6 @@ var APIKeyMovieDB = "4ee2048f656df52ca79c1b3928871706"
 
 //Display movie poster from MovieDB API URL
 var displayMoviePoster = function (movieTitle, posterId) {
-    console.log(movieTitle)
-    console.log(posterId)
 
     containerMovieEl.textContent = ""
 
@@ -27,8 +26,11 @@ var displayMoviePoster = function (movieTitle, posterId) {
     var posterEl = document.createElement("div")
     var movieTitleEl = document.createElement("h3")
     var posterImg = document.createElement("img")
+    var movieTitleEl = document.createElement("h3")
     posterImg.setAttribute("src", posterUrl)
     movieTitleEl.textContent = movieTitle
+    movieTitleEl.setAttribute("class","movieTitle")
+    posterImg.setAttribute("class","posterImg")
     
     //append to the poster element and then the movie container
     posterEl.appendChild(movieTitleEl);
@@ -45,7 +47,7 @@ var displayMovieInfo = function (data) {
     var movieYear = data.Year
     var movieRuntime = data.Runtime
     var movieRating = data.Rated 
-
+    
     //create elements to display movie data
     var movieInfoEl = document.createElement("div");
     var moviePlotEl = document.createElement("p");
@@ -87,7 +89,7 @@ var displayMovieInfo = function (data) {
 
     var newMovieBtn = document.createElement("btn")
     newMovieBtn.setAttribute("type", "submit");
-    newMovieBtn.setAttribute("class", "btn-group btn-warning p-2 m-2");
+    newMovieBtn.setAttribute("class", "btn-movienew");
     newMovieBtn.textContent = "New Movie"
     newMovieBtn.addEventListener("click", function () {
         getGenreInfo(document.getElementById("movie-dropdown").value)
@@ -241,7 +243,7 @@ var displayFoodRecipe = function(data) {
 
     var newRecipeBtn = document.createElement("btn")
     newRecipeBtn.setAttribute("type", "submit");
-    newRecipeBtn.setAttribute("class", "btn-group btn-warning p-2 m-2");
+    newRecipeBtn.setAttribute("class", "btn-recipenew");
     newRecipeBtn.textContent = "New Recipe"
     newRecipeBtn.addEventListener("click", function () {
         getRandomRecipe(document.getElementById("recipe-dropdown").value)
@@ -250,6 +252,8 @@ var displayFoodRecipe = function(data) {
     containerRecipeEl.appendChild(newRecipeBtn)
 
 
+    containerRecipeEl.appendChild(newRecipeBtn)
+    pictures.style.display = "none"
 
 }
 
@@ -270,6 +274,5 @@ buttonKickback.addEventListener("click", function () {
     var choiceMovie = document.getElementById("movie-dropdown").value;
     var choiceRecipe = document.getElementById("recipe-dropdown").value;
     generateRandRecMov(choiceMovie, choiceRecipe)
-} )
-
-
+    pictures.style.display = "none"
+});
