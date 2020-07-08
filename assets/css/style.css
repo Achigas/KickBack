@@ -83,11 +83,7 @@ footer {
     margin-bottom: 1%;
 }
 
-<<<<<<< HEAD
-#movieDropdown {
-=======
 .btn-recipe {
->>>>>>> b04717f9b689e28a49270aa3aaf4c32f5c8eb329
     background-color: teal;
     color: white;
     font-weight: bold;
@@ -98,11 +94,7 @@ footer {
     outline: none;
 }
 
-<<<<<<< HEAD
-.recipeDropdown {
-=======
 .btn-movie {
->>>>>>> b04717f9b689e28a49270aa3aaf4c32f5c8eb329
     background-color: teal;
     color: white;
     font-weight: bold;
@@ -113,14 +105,8 @@ footer {
     outline: none;
 }
 
-<<<<<<< HEAD
-#movieDropdown:hover {
-    background-color:darkmagenta;
-    border-color: teal;
-=======
 .btn-movienew {
     background-color: teal;
->>>>>>> b04717f9b689e28a49270aa3aaf4c32f5c8eb329
     color: white;
     font-weight: bold;
     border-color: teal;
@@ -131,14 +117,8 @@ footer {
     margin-left: 0%;
 }
 
-<<<<<<< HEAD
-#recipeDropdown:hover {
-    background-color:darkmagenta;
-    border-color: teal;
-=======
 .btn-recipenew {
     background-color: teal;
->>>>>>> b04717f9b689e28a49270aa3aaf4c32f5c8eb329
     color: white;
     font-weight: bold;
     border-color: teal;
@@ -170,6 +150,11 @@ footer {
 
 body {
     background-image: url("../images/brickwall.jpg");
+}
+
+main {
+    text-align: center;
+    text-transform: uppercase;
 }
 
 .row {
