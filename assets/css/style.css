@@ -114,7 +114,7 @@ footer {
     border-width: 6px;
     outline: none;
     font-size: small;
-    margin-left: 0%;
+    margin-left: 5%;
 }
 
 .btn-recipenew {
@@ -126,7 +126,7 @@ footer {
     border-width: 6px;
     outline: none;
     font-size: small;
-    margin-left: -2%;
+    margin-left: 5%;
 }
 
 
@@ -237,4 +237,13 @@ main {
 .movieExtraInfo {
     margin-top: -1%;
     margin-bottom: 2%;
+}
+
+.saved-card {
+    background-color: teal;
+}
+
+.saved-card:hover {
+    cursor: pointer;
+    background-color: gray
 }
