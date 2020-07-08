@@ -78,9 +78,7 @@ footer {
 }s
 
 .options { 
-    display: flex;
    margin-bottom: 1%;
-   
 }
 .btn-movie {
     background-color: teal;
@@ -89,6 +87,7 @@ footer {
     border-color: teal;
     border-style: outset;
     border-width: 8px;
+    margin-left: 60%;
     outline: none;
 }
 .btn-recipe {
@@ -99,9 +98,10 @@ footer {
     border-style: outset;
     border-width: 8px;
     outline: none;
+    margin-left: 10%;
+s
 }
 
-/*
 .btn-movienew {
     background-color: teal;
     color: white;
@@ -123,9 +123,8 @@ footer {
     border-width: 6px;
     outline: none;
     font-size: small;
-    margin-left: 0%;
+    margin-left: -2%;
 }
-*/
 
 .btn-submit {
     background-color: darkmagenta;
