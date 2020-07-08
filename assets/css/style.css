@@ -75,25 +75,13 @@ footer {
 
 .copy {
     font-size: 8pt;
-}
+}s
 
-.options {
+.options { 
     display: flex;
-    margin-left: 30%;
-    margin-bottom: 1%;
+   margin-bottom: 1%;
+   
 }
-
-.btn-recipe {
-    background-color: teal;
-    color: white;
-    font-weight: bold;
-    border-color: teal;
-    border-style: outset;
-    border-width: 8px;
-    margin-left: -70%;
-    outline: none;
-}
-
 .btn-movie {
     background-color: teal;
     color: white;
@@ -101,10 +89,19 @@ footer {
     border-color: teal;
     border-style: outset;
     border-width: 8px;
-    margin-left: 166%;
+    outline: none;
+}
+.btn-recipe {
+    background-color: teal;
+    color: white;
+    font-weight: bold;
+    border-color: teal;
+    border-style: outset;
+    border-width: 8px;
     outline: none;
 }
 
+/*
 .btn-movienew {
     background-color: teal;
     color: white;
@@ -126,9 +123,9 @@ footer {
     border-width: 6px;
     outline: none;
     font-size: small;
-    margin-left: -2%;
+    margin-left: 0%;
 }
-
+*/
 
 .btn-submit {
     background-color: darkmagenta;
@@ -137,6 +134,7 @@ footer {
     border-color:darkmagenta;
     border-width: 8px;
     margin-left: 45%;
+    margin-right: 55%;
     outline: none;
     margin-top: 0%;
     font-family: 'Purple Purse';
@@ -152,7 +150,7 @@ body {
     background-image: url("../images/brickwall.jpg");
 }
 
-main {
+.results {
     text-align: center;
     text-transform: uppercase;
 }
