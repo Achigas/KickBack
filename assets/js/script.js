@@ -18,7 +18,7 @@ var displayMoviePoster = function (posterId) {
     var posterEl = document.createElement("div")
     var posterImg = document.createElement("img")
     posterImg.setAttribute("src", posterUrl)
-    
+
     //append to the poster element and then the movie container
     posterEl.appendChild(posterImg);
     containerMovieEl.appendChild(posterEl);
@@ -33,8 +33,8 @@ var displayMovieInfo = function (data) {
     var movieActors = data.Actors
     var movieYear = data.Year
     var movieRuntime = data.Runtime
-    var movieRating = data.Rated 
-    
+    var movieRating = data.Rated
+
     console.log(movieTitle)
     console.log(moviePlot)
     console.log(movieRating)
@@ -60,11 +60,11 @@ var displayMovieInfo = function (data) {
     movieInfoEl.appendChild(movieRuntimeEl);
     movieInfoEl.appendChild(movieRatingEl);
     movieInfoEl.appendChild(movieYearEl);
-    movieTitleEl.setAttribute("class","movieTitle")
-    moviePlotEl.setAttribute("class","moviePlot")
-    movieRuntimeEl.setAttribute("class","movieExtraInfo")
-    movieRatingEl.setAttribute("class","movieExtraInfo")
-    movieYearEl.setAttribute("class","movieExtraInfo")
+    movieTitleEl.setAttribute("class", "movieTitle")
+    moviePlotEl.setAttribute("class", "moviePlot")
+    movieRuntimeEl.setAttribute("class", "movieExtraInfo")
+    movieRatingEl.setAttribute("class", "movieExtraInfo")
+    movieYearEl.setAttribute("class", "movieExtraInfo")
 
     //append to movie container
     containerMovieEl.appendChild(movieInfoEl)
@@ -72,23 +72,23 @@ var displayMovieInfo = function (data) {
 }
 
 //pass in genre choice to get genre IDs from MovieDB API
-var getGenreInfo = function (choice) { 
+var getGenreInfo = function (choice) {
     var genreUrl = "https://api.themoviedb.org/3/genre/movie/list?api_key=" + APIKeyMovieDB + "&language=en-US";
 
-    fetch(genreUrl).then(function(response) {
-        response.json().then(function(data) {
-        console.log(data);
-        
-        //for loop to find the ID for matching choice
-        for (var i=0; i < data.genres.length; i++)
-            if (data.genres[i].name === choice) {
-                var genreId = data.genres[i].id
-            }
+    fetch(genreUrl).then(function (response) {
+        response.json().then(function (data) {
+            console.log(data);
+
+            //for loop to find the ID for matching choice
+            for (var i = 0; i < data.genres.length; i++)
+                if (data.genres[i].name === choice) {
+                    var genreId = data.genres[i].id
+                }
 
             //get array of movies with that genreID
             getMovieArray(genreId)
+        });
     });
-  });
 };
 
 //Movie array
@@ -99,18 +99,18 @@ var getMovieArray = function (genreId) {
 
     //fetching movies what genre
     var movieArrayURL = "https://api.themoviedb.org/3/discover/movie?api_key=" + APIKeyMovieDB + "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=" + pageNumber + "&with_genres=" + genreId;
-    fetch(movieArrayURL).then(function(response) {
-        response.json().then(function(data) {
+    fetch(movieArrayURL).then(function (response) {
+        response.json().then(function (data) {
             console.log(data);
-        
-        //get a random movie from the random page
-        randomMovie = Math.floor(Math.random() * Math.floor(20))
-        
-        var movieId = data.results[randomMovie].id
-        var posterId = data.results[randomMovie].poster_path
 
-        displayMoviePoster(posterId)
-        getMovieInfo(movieId)
+            //get a random movie from the random page
+            randomMovie = Math.floor(Math.random() * Math.floor(20))
+
+            var movieId = data.results[randomMovie].id
+            var posterId = data.results[randomMovie].poster_path
+
+            displayMoviePoster(posterId)
+            getMovieInfo(movieId)
         });
     });
 };
@@ -119,28 +119,28 @@ var getMovieArray = function (genreId) {
 var getMovieInfo = function (movieId) {
 
     var getMovieDetailsUrl = "https://api.themoviedb.org/3/movie/" + movieId + "?api_key=" + APIKeyMovieDB + "&language=en-US";
-    fetch(getMovieDetailsUrl).then(function(response) {
-        response.json().then(function(data) {
+    fetch(getMovieDetailsUrl).then(function (response) {
+        response.json().then(function (data) {
             console.log(data);
 
-    idIMDB = data.imdb_id;
+            idIMDB = data.imdb_id;
 
-    getIMDBinfo(idIMDB);
+            getIMDBinfo(idIMDB);
 
-    });
+        });
     });
 };
 
 //call to OMDB for cleaner data and synopsis 
 var getIMDBinfo = function (idIMDB) {
     var getMovieInfoIMDBUrl = "http://www.omdbapi.com/?i=" + idIMDB + "&apikey=" + APIKeyOMDB;
-    fetch(getMovieInfoIMDBUrl).then(function(response) {
-        response.json().then(function(data) {
+    fetch(getMovieInfoIMDBUrl).then(function (response) {
+        response.json().then(function (data) {
             console.log(data);
 
-    displayMovieInfo(data)
+            displayMovieInfo(data)
 
-    
+
         });
     });
 
@@ -152,33 +152,33 @@ getGenreInfo(choice)
 var getRandomRecipe = function () {
     var offsetId = Math.floor(Math.random() * Math.floor(200));
     var foodType = "chinese";
-    var typeFoodUrl = "https://api.spoonacular.com/recipes/complexSearch?cuisine=" + foodType + "&number=100&apiKey=" + APIKeySpoon + "&offset=" + offsetId; 
-    fetch(typeFoodUrl).then(function(response) {
-        response.json().then(function(data) {
+    var typeFoodUrl = "https://api.spoonacular.com/recipes/complexSearch?cuisine=" + foodType + "&number=100&apiKey=" + APIKeySpoon + "&offset=" + offsetId;
+    fetch(typeFoodUrl).then(function (response) {
+        response.json().then(function (data) {
             console.log(data);
-            
+
             randomFoodId = Math.floor(Math.random() * Math.floor(100))
 
             var foodId = data.results[randomFoodId].id;
-           
-            
+
+
             getRecipeInfo(foodId);
         })
     })
-} 
-
-
-var getRecipeInfo = function(foodId){
-    var recInfoUrl ="https://api.spoonacular.com/recipes/" + foodId + "/information?apiKey=" + APIKeySpoon;
-    fetch(recInfoUrl).then(function(response) {
-        response.json().then(function(data) {
-            console.log(data);
-            displayFoodRecipe(data);
-})
-})
 }
 
-var displayFoodRecipe = function(data) {
+
+var getRecipeInfo = function (foodId) {
+    var recInfoUrl = "https://api.spoonacular.com/recipes/" + foodId + "/information?apiKey=" + APIKeySpoon;
+    fetch(recInfoUrl).then(function (response) {
+        response.json().then(function (data) {
+            console.log(data);
+            displayFoodRecipe(data);
+        })
+    })
+}
+
+var displayFoodRecipe = function (data) {
     var foodTitle = data.title
     var timePrep = data.readyInMinutes
     var foodImage = data.image
@@ -191,7 +191,7 @@ var displayFoodRecipe = function(data) {
     var recipeSourceLink = document.createElement("a");
     var recipeImageEl = document.createElement("img");
     var recipePreptimeEl = document.createElement("p");
-    
+
     recipeSourceLink.setAttribute("href", foodSource)
     recipeImageEl.setAttribute("src", foodImage)
     recipeImageEl.setAttribute("class", "recipeImage")
@@ -202,7 +202,7 @@ var displayFoodRecipe = function(data) {
 
     recipeNameEl.textContent = foodTitle;
     recipePreptimeEl.textContent = "Prep time: " + timePrep + "  minutes";
-    
+
     recipeInfoEl.appendChild(recipeNameEl)
     recipeInfoEl.appendChild(recipePreptimeEl)
     recipeInfoEl.appendChild(recipeSourceLink)
