@@ -9,15 +9,13 @@ var pictures = document.getElementById("pictures")
 var recipes = []
 var savedRecipes = []
 var movies = []
+var savedMovies = []
+
 
 //API Keys
 var APIKeyOMDB = "70f249c8"
-var APIKeySpoon = "1342f319f99f46d582bae8ebd7c7a61e"
+var APIKeySpoon = "1342f319f99f46d582bae8ebd7c7a61e0"
 var APIKeyMovieDB = "4ee2048f656df52ca79c1b3928871706"
-//choice input 
-//var choiceMovie = document.getElementById("movie-dropdown").value;
-//var choiceRecipe = document.getElementById("recipe-dropdown").value;
-
 
 var saveRecipe = function () {
     event.preventDefault()
@@ -29,7 +27,21 @@ var saveRecipe = function () {
 var saveMovie = function () {
     event.preventDefault()
     console.log("Movie!")
-    localStorage.setItem("movies", JSON.stringify(movies));
+    localStorage.setItem("movies", JSON.stringify(savedMovies));
+}
+
+var loadMovies = function () {
+    var loadedMovies = localStorage.getItem("movies")
+    if(!loadedMovies) {
+        return false;
+    }
+
+    loadedMovies = JSON.parse(loadedMovies)
+
+    for (var i=0; i < loadedMovies.length; i++) {
+        displaySavedMovies(loadedMovies[i])
+        savedMovies.push(loadedMovies[i])
+    }
 }
 
 var displaySavedRecipes = function (id, title) {
@@ -51,6 +63,48 @@ var displaySavedRecipes = function (id, title) {
     savedRecipeCardEl.appendChild(savedRecipeInfoEl)
     
     containerSavedRecipesEl.appendChild(savedRecipeCardEl)
+    
+}
+//displays cards of movies to watch later
+var displaySavedMovies = function (moviearray) {
+    containerSavedMoviesEl.setAttribute("class", "colA col-sm-6 col-md-5 offset-md-5 col-lg-4 offset-lg-1 mb-2")
+
+    //create card elements for saved movies 
+    var savedMovieCardEl = document.createElement("div");
+    savedMovieCardEl.setAttribute("class", "card")
+    var savedMovieInfoEl = document.createElement("div")
+    savedMovieInfoEl.setAttribute("class", "card-body saved-card")
+    var savedMovieNameEl = document.createElement("h4")
+    savedMovieNameEl.textContent = moviearray.title
+    var savedMoviegenreEl = document.createElement("p")
+    savedMoviegenreEl.textContent = moviearray.genre
+    savedMovieInfoEl.addEventListener("click", function () {
+
+        //handles display if clicked without using Kickback button yet
+        pictures.style.display = "none"
+        containerRecipeEl.setAttribute("class","colA col-sm-6 col-md-5 offset-md-5 col-lg-4 offset-lg-1 mb-2")
+        containerMovieEl.setAttribute("class", "colB col-sm-6 col-md-5 offset-md-5 col-lg-4 offset-lg-1 mb-2")
+
+        //update active movie array with current 'saved' movie data
+        movies = {
+            id: moviearray.id,
+            genre: moviearray.genre,
+            title: moviearray.title,
+            poster: moviearray.poster
+        }
+
+        document.getElementById("movie-dropdown").value = moviearray.genre
+
+        //call functions to display movie in container
+        displayMoviePoster(moviearray.title, moviearray.poster)
+        getMovieInfo(moviearray.id)
+    })
+
+    savedMovieInfoEl.appendChild(savedMovieNameEl)
+    savedMovieInfoEl.appendChild(savedMoviegenreEl)
+    savedMovieCardEl.appendChild(savedMovieInfoEl)
+
+    containerSavedMoviesEl.appendChild(savedMovieCardEl)
     
 }
 
@@ -141,8 +195,24 @@ var displayMovieInfo = function (data) {
     saveMovieBtn.setAttribute("class","btn-movienew m-l-5");
     saveMovieBtn.textContent = "Save for Later"
     saveMovieBtn.addEventListener("click", function() {
-        saveMovie()
-    } )
+
+
+        for (var i = 0; i < savedMovies.length; i++) {
+            console.log(savedMovies)
+            if (movies.id === savedMovies[i].id) {
+                console.log(movies.id)
+                console.log(savedMovies[i].id)
+                var prevSave = true
+                }
+
+            }
+
+            if (!prevSave) {
+                savedMovies.push(movies)
+                saveMovie()
+                displaySavedMovies(movies)
+        }
+    });
 
     containerMovieEl.appendChild(saveMovieBtn)
     containerMovieEl.appendChild(newMovieBtn)
@@ -164,19 +234,19 @@ var getGenreInfo = function (choice) {
         for (var i=0; i < data.genres.length; i++)
             if (data.genres[i].name === choice) {
                 var genreId = data.genres[i].id
+                var genreName = data.genres[i].name
             }
 
             //get array of movies with that genreID
-            getMovieArray(genreId)
+            getMovieArray(genreId, genreName)
     });
   });
 };
 
 //Movie array
-var getMovieArray = function (genreId) {
+var getMovieArray = function (genreId, genreName) {
     //random page -- organized from most to least popular - 50 is accessing top 1000 movies - can be variable
     pageNumber = Math.floor(Math.random() * Math.floor(50))
-    console.log(genreId)
 
     //fetching movies what genre
     var movieArrayURL = "https://api.themoviedb.org/3/discover/movie?api_key=" + APIKeyMovieDB + "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=" + pageNumber + "&with_genres=" + genreId;
@@ -190,6 +260,13 @@ var getMovieArray = function (genreId) {
         var movieId = data.results[randomMovie].id
         var movieTitle = data.results[randomMovie].title 
         var posterId = data.results[randomMovie].poster_path
+        
+        movies = {
+            id: movieId,
+            genre: genreName,
+            title: movieTitle,
+            poster: posterId
+        }
 
         displayMoviePoster(movieTitle, posterId)
         getMovieInfo(movieId)
@@ -269,11 +346,11 @@ var displayFoodRecipe = function(foodId, data) {
     var foodImage = data.image
     var foodSource = data.sourceUrl
 
-    //update recipe array in case of local save 
-    recipes = [{
+    //update temp recipe array in case of local save 
+    recipes = {
         id: foodId,
         title: foodTitle
-    }];
+    };
 
 
     console.log(recipes)
@@ -363,6 +440,8 @@ var generateRandRecMov = function(choiceMov, choiceRec) {
     getGenreInfo(choiceMov);
 }
 
+//load movies upon opening of page
+loadMovies()
 
 //button click 
 buttonKickback.addEventListener("click", function () {
