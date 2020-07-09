@@ -79,7 +79,7 @@ footer {
 }
 
 .options { 
-    display: flex;
+   display: flex;
    margin-bottom: 1%;
 }
 .btn-movie {
@@ -207,6 +207,8 @@ body {
 
 .recipeName {
     text-align: center;
+    font-size: xx-large;
+    margin-top: 15%;
 }
 
 .recipePreptime {
