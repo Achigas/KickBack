@@ -105,6 +105,16 @@ footer {
     outline: none;
 }
 
+.btn-movie:hover {
+    background-color: darkmagenta;
+    cursor: pointer;
+}
+
+.btn-recipe:hover {
+    background-color: darkmagenta;
+    cursor: pointer;
+}
+
 .btn-movienew {
     background-color: teal;
     color: white;
@@ -129,6 +139,13 @@ footer {
     margin-left: 5%;
 }
 
+.btn-recipenew:hover {
+    background-color: darkmagenta;
+}
+
+.btn-movienew:hover {
+    background-color: darkmagenta;
+}
 
 .btn-submit {
     background-color: darkmagenta;
@@ -142,9 +159,8 @@ footer {
     font-family: 'Purple Purse';
 }
 
-.btn-submit:focus{
-    background-color:darkmagenta;
-    background-color: darkmagenta;
+.btn-submit:hover{
+    background-color: teal;
     outline: none;
 }
 

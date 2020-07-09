@@ -1,11 +1,15 @@
 var containerMovieEl = document.getElementById("movie-container")
 var containerRecipeEl = document.getElementById("recipe-container")
+var dropdownRecipeEl = document.getElementById("recipe-dropdown")
+var dropdownMovieEl = document.getElementById("movie-dropdown")
 var containerSavedMoviesEl = document.getElementById("saved-movies")
 var containerSavedRecipesEl = document.getElementById("saved-recipes")
 var containerRecButtons = document.getElementById("recipe-buttons")
 var containerMovieButtons = document.getElementById("movie-buttons")
 var buttonKickback = document.getElementById("kickback-submit")
 var pictures = document.getElementById("pictures")
+
+//arrays/objects
 var recipes = []
 var savedRecipes = []
 var movies = []
@@ -14,14 +18,28 @@ var savedMovies = []
 
 //API Keys
 var APIKeyOMDB = "70f249c8"
-var APIKeySpoon = "1342f319f99f46d582bae8ebd7c7a61e0"
+var APIKeySpoon = "1342f319f99f46d582bae8ebd7c7a61e"
 var APIKeyMovieDB = "4ee2048f656df52ca79c1b3928871706"
 
 var saveRecipe = function () {
     event.preventDefault()
     console.log("Recipe!")
+    console.log(savedRecipes)
     localStorage.setItem("recipes", JSON.stringify(savedRecipes));
 
+}
+
+var loadRecipes = function () {
+    var loadedRecipes = localStorage.getItem("recipes")
+    if(!loadedRecipes) {
+        return false;
+    }
+
+    loadedRecipes = JSON.parse(loadedRecipes)
+
+    for (var i=0; i < loadedRecipes.length; i++)
+        displaySavedRecipes(loadedRecipes[i])
+        savedRecipes.push(loadedRecipes[i])
 }
 
 var saveMovie = function () {
@@ -44,22 +62,44 @@ var loadMovies = function () {
     }
 }
 
-var displaySavedRecipes = function (id, title) {
+var displaySavedRecipes = function (recipeObject) {
     containerSavedRecipesEl.setAttribute("class", "colA col-sm-6 col-md-5 offset-md-5 col-lg-4 offset-lg-1 mb-2")
-
 
     var savedRecipeCardEl = document.createElement("div");
     savedRecipeCardEl.setAttribute("class", "card")
     var savedRecipeInfoEl = document.createElement ("div");
     savedRecipeInfoEl.setAttribute("class", "card-body saved-card")
-    var savedRecipeNameEl = document.createElement("p")
-    savedRecipeNameEl.textContent = title
+    var savedRecipeNameEl = document.createElement("h5")
+    var savedCuisineNameEl = document.createElement("p")
+    savedRecipeNameEl.textContent = recipeObject.title
+    savedCuisineNameEl.textContent = recipeObject.cuisine
     savedRecipeInfoEl.addEventListener("click", function() {
-        getRecipeInfo(id)
+
+        //handles display if clicked without using Kickback button yet
+        pictures.style.display = "none"
+        containerRecipeEl.setAttribute("class","colA col-sm-6 col-md-5 offset-md-5 col-lg-4 offset-lg-1 mb-2")
+        containerMovieEl.setAttribute("class", "colB col-sm-6 col-md-5 offset-md-5 col-lg-4 offset-lg-1 mb-2")
+
+        if (!dropdownMovieEl.value) {
+            dropdownMovieEl.value = "Comedy"
+            getGenreInfo(dropdownMovieEl.value)
+        }
+        
+        //set array to current recipe data
+        recipes = {
+            id: recipeObject.id,
+            title: recipeObject.title,
+            cuisine: recipeObject.cuisine
+        }
+
+        dropdownRecipeEl.value = recipeObject.cuisine
+
+        getRecipeInfo(recipeObject.id)
         
     } )
 
     savedRecipeInfoEl.appendChild(savedRecipeNameEl)
+    savedRecipeInfoEl.appendChild(savedCuisineNameEl)
     savedRecipeCardEl.appendChild(savedRecipeInfoEl)
     
     containerSavedRecipesEl.appendChild(savedRecipeCardEl)
@@ -74,7 +114,7 @@ var displaySavedMovies = function (moviearray) {
     savedMovieCardEl.setAttribute("class", "card")
     var savedMovieInfoEl = document.createElement("div")
     savedMovieInfoEl.setAttribute("class", "card-body saved-card")
-    var savedMovieNameEl = document.createElement("h4")
+    var savedMovieNameEl = document.createElement("h5")
     savedMovieNameEl.textContent = moviearray.title
     var savedMoviegenreEl = document.createElement("p")
     savedMoviegenreEl.textContent = moviearray.genre
@@ -85,6 +125,12 @@ var displaySavedMovies = function (moviearray) {
         containerRecipeEl.setAttribute("class","colA col-sm-6 col-md-5 offset-md-5 col-lg-4 offset-lg-1 mb-2")
         containerMovieEl.setAttribute("class", "colB col-sm-6 col-md-5 offset-md-5 col-lg-4 offset-lg-1 mb-2")
 
+        if (!dropdownRecipeEl.value) {
+            dropdownRecipeEl.value = "Chinese";
+            getRandomRecipe(dropdownRecipeEl.value)
+        }
+
+
         //update active movie array with current 'saved' movie data
         movies = {
             id: moviearray.id,
@@ -93,7 +139,7 @@ var displaySavedMovies = function (moviearray) {
             poster: moviearray.poster
         }
 
-        document.getElementById("movie-dropdown").value = moviearray.genre
+        dropdownMovieEl.value = moviearray.genre
 
         //call functions to display movie in container
         displayMoviePoster(moviearray.title, moviearray.poster)
@@ -343,13 +389,15 @@ var displayFoodRecipe = function(foodId, data) {
 
     var foodTitle = data.title
     var timePrep = data.readyInMinutes
+    var foodCuisine = data.cuisines[0]
     var foodImage = data.image
     var foodSource = data.sourceUrl
 
     //update temp recipe array in case of local save 
     recipes = {
         id: foodId,
-        title: foodTitle
+        title: foodTitle,
+        cuisine: foodCuisine
     };
 
 
@@ -393,16 +441,26 @@ var displayFoodRecipe = function(foodId, data) {
     saveRecipeBtn.setAttribute("class", "btn-recipenew");
     saveRecipeBtn.textContent = "Save for Later"
     saveRecipeBtn.addEventListener("click", function() {
-        savedRecipes.push(recipes)
-        saveRecipe()
-        displaySavedRecipes(foodId, foodTitle)
-    })
+
+        for (var i = 0; i < savedRecipes.length; i++) {
+            console.log(recipes)
+            if (recipes.id === savedRecipes[i].id) {
+                var prevSave = true
+                }
+
+            }
+
+            if (!prevSave) {
+                savedRecipes.push(recipes)
+                saveRecipe()
+                displaySavedRecipes(recipes)
+        }
+    });
     
     containerRecipeEl.appendChild(saveRecipeBtn)
 
 
     containerRecipeEl.appendChild(newRecipeBtn)
-    pictures.style.display = "none"
 
 }
 
@@ -442,6 +500,7 @@ var generateRandRecMov = function(choiceMov, choiceRec) {
 
 //load movies upon opening of page
 loadMovies()
+loadRecipes()
 
 //button click 
 buttonKickback.addEventListener("click", function () {
