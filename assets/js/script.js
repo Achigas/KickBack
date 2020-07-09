@@ -37,9 +37,11 @@ var loadRecipes = function () {
 
     loadedRecipes = JSON.parse(loadedRecipes)
 
-    for (var i=0; i < loadedRecipes.length; i++)
+    for (var i=0; i < loadedRecipes.length; i++) {
         displaySavedRecipes(loadedRecipes[i])
         savedRecipes.push(loadedRecipes[i])
+}
+
 }
 
 var saveMovie = function () {
@@ -60,13 +62,15 @@ var loadMovies = function () {
         displaySavedMovies(loadedMovies[i])
         savedMovies.push(loadedMovies[i])
     }
+
+
 }
 
 var displaySavedRecipes = function (recipeObject) {
     containerSavedRecipesEl.setAttribute("class", "colA col-sm-6 col-md-5 offset-md-5 col-lg-4 offset-lg-1 mb-2")
 
     var savedRecipeCardEl = document.createElement("div");
-    savedRecipeCardEl.setAttribute("class", "card")
+    savedRecipeCardEl.setAttribute("class", "card mb-3")
     savedRecipeCardEl.setAttribute("recipe-id", recipeObject.id)
     var savedRecipeInfoEl = document.createElement ("div");
     savedRecipeInfoEl.setAttribute("class", "card-body saved-card")
@@ -85,11 +89,12 @@ var displaySavedRecipes = function (recipeObject) {
         var recipeDeleted = document.querySelector(".card[recipe-id='" + recipeObject.id + "']");
         recipeDeleted.remove()
 
+        console.log(savedRecipes)
         var updatedRecipes = []
 
-        for (var i=0; i<savedRecipes.length; i++) {
+        for (var i=0; i < savedRecipes.length; i++) {
             if (savedRecipes[i].id !== recipeObject.id) {
-                updatedecipes.push(savedRecipes[i])
+                updatedRecipes.push(savedRecipes[i])
             }
         }
 
@@ -128,8 +133,8 @@ var displaySavedRecipes = function (recipeObject) {
 
     savedRecipeInfoEl.appendChild(savedRecipeNameEl)
     savedRecipeInfoEl.appendChild(savedCuisineNameEl)
-    savedRecipeInfoEl.appendChild(deleteButtonEl)
     savedRecipeCardEl.appendChild(savedRecipeInfoEl)
+    savedRecipeCardEl.appendChild(deleteButtonEl)
    
     
     containerSavedRecipesEl.appendChild(savedRecipeCardEl)
@@ -141,7 +146,7 @@ var displaySavedMovies = function (moviearray) {
 
     //create card elements for saved movies 
     var savedMovieCardEl = document.createElement("div");
-    savedMovieCardEl.setAttribute("class", "card")
+    savedMovieCardEl.setAttribute("class", "card mb-3")
     savedMovieCardEl.setAttribute("movie-id", moviearray.id)
     var savedMovieInfoEl = document.createElement("div")
     savedMovieInfoEl.setAttribute("class", "card-body saved-card")
@@ -203,10 +208,11 @@ var displaySavedMovies = function (moviearray) {
         getMovieInfo(moviearray.id)
     })
 
+    //append children 
     savedMovieInfoEl.appendChild(savedMovieNameEl)
     savedMovieInfoEl.appendChild(savedMoviegenreEl)
-    savedMovieInfoEl.appendChild(deleteButtonEl)
     savedMovieCardEl.appendChild(savedMovieInfoEl)
+    savedMovieCardEl.appendChild(deleteButtonEl)
 
     containerSavedMoviesEl.appendChild(savedMovieCardEl)
     

@@ -106,12 +106,12 @@ footer {
 }
 
 .btn-movie:hover {
-    background-color: darkmagenta;
+    background-color: grey;
     cursor: pointer;
 }
 
 .btn-recipe:hover {
-    background-color: darkmagenta;
+    background-color: grey;
     cursor: pointer;
 }
 
@@ -140,11 +140,11 @@ footer {
 }
 
 .btn-recipenew:hover {
-    background-color: darkmagenta;
+    background-color: grey;
 }
 
 .btn-movienew:hover {
-    background-color: darkmagenta;
+    background-color: grey;
 }
 
 .btn-submit {
@@ -165,8 +165,8 @@ footer {
 }
 
 .delete-btn {
-    font-size: 1.4rem;
-    padding: 5px 7px;
+    font-size: 1.0rem;
+    padding: 2px 2px;
     margin: 3px;
     background: teal;
     color: #fff;
@@ -264,8 +264,15 @@ main {
     margin-bottom: 2%;
 }
 
+.card {
+    border-radius: 10px;
+}
+
+
 .saved-card {
     background-color: teal;
+    border-radius: 15px;
+    margin: 3px;
 }
 
 .saved-card:hover {
