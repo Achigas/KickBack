@@ -19,12 +19,11 @@
     </div>
     </header>
     <main>
-      <div id="kickback-submit">
-        <button type="submit" class="btn-submit">KickBack!</button>
+      <div>
+        <button type="submit" id="kickback-submit" class="btn-submit">KickBack!</button>
       </div>
       <div class="options">
-        <div id="recipeDropdown">
-          <select name="recipe-choice" id="recipe-dropdown" class="btn-recipe options">
+          <select name="recipe-choice" id="recipe-dropdown" class="btn-recipe">
             <option value="" disabled selected>Recipes</option>
             <option value="African">African</option>
             <option value="American">American</option>
@@ -43,9 +42,7 @@
             <option value="Thai">Thai</option>
             <option value="Vietnamese">Vietnamese</option>
           </select>
-        </div>
-        <div id="movieDropdown">
-          <select name="movie-choice" id="movie-dropdown" class="btn-movie options">
+          <select name="movie-choice" id="movie-dropdown" class="btn-movie">
             <option value="" disabled selected>Movies</option>
             <option value="Action">Action</option>
             <option value="Adventure">Adventure</option>
@@ -63,7 +60,6 @@
             <option value="War">War</option>
             <option value="Western">Western</option>
           </select>
-        </div>
       </div>
       <div class="results">
         <div class="row row-cols-sm-10 row-cols-lg-2" id="results-container">
@@ -80,6 +76,26 @@
         <img class="heroB" src="./assets/images/tv.jpg" alt="kickbackheroimage">
       </div>
     </main>
+    <!--- MODAL -->
+        <div class="modal" id="modal" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Missing Item</h5>
+                <button type="button" id="close" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body" id="modalText">
+                <p></p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" id="ok" class="btn btn-primary">OK</button>
+              </div>
+            </div>
+          </div>
+        </div>
+          <!--MODAL END-->
     <footer>
         <p class="footer text-center">KickBack! + Relax! + Enjoy! <span class="copy">&copy;2020</span></p>
     </footer>
