@@ -21,14 +21,14 @@ var APIKeyOMDB = "70f249c8"
 var APIKeySpoon = "1342f319f99f46d582bae8ebd7c7a61e"
 var APIKeyMovieDB = "4ee2048f656df52ca79c1b3928871706"
 
+//save recipes into local storage
 var saveRecipe = function () {
     event.preventDefault()
-    console.log("Recipe!")
-    console.log(savedRecipes)
     localStorage.setItem("recipes", JSON.stringify(savedRecipes));
 
 }
 
+//load Recipes -- called at site load
 var loadRecipes = function () {
     var loadedRecipes = localStorage.getItem("recipes")
     if(!loadedRecipes) {
@@ -37,6 +37,7 @@ var loadRecipes = function () {
 
     loadedRecipes = JSON.parse(loadedRecipes)
 
+    //savedRecipes is array for 'recipes' in local storage
     for (var i=0; i < loadedRecipes.length; i++) {
         displaySavedRecipes(loadedRecipes[i])
         savedRecipes.push(loadedRecipes[i])
@@ -44,12 +45,13 @@ var loadRecipes = function () {
 
 }
 
+//save movies into local storage
 var saveMovie = function () {
     event.preventDefault()
-    console.log("Movie!")
     localStorage.setItem("movies", JSON.stringify(savedMovies));
 }
 
+//load movies -- called upon page load
 var loadMovies = function () {
     var loadedMovies = localStorage.getItem("movies")
     if(!loadedMovies) {
@@ -58,6 +60,7 @@ var loadMovies = function () {
 
     loadedMovies = JSON.parse(loadedMovies)
 
+    //savedMovies is the array for local storage
     for (var i=0; i < loadedMovies.length; i++) {
         displaySavedMovies(loadedMovies[i])
         savedMovies.push(loadedMovies[i])
@@ -66,9 +69,11 @@ var loadMovies = function () {
 
 }
 
+//displays the cards after user hits "save for later"
 var displaySavedRecipes = function (recipeObject) {
     containerSavedRecipesEl.setAttribute("class", "colA col-sm-6 col-md-5 offset-md-5 col-lg-4 offset-lg-1 mb-2")
 
+    //Build cards with recipe data
     var savedRecipeCardEl = document.createElement("div");
     savedRecipeCardEl.setAttribute("class", "card mb-3")
     savedRecipeCardEl.setAttribute("recipe-id", recipeObject.id)
@@ -79,17 +84,18 @@ var displaySavedRecipes = function (recipeObject) {
     savedRecipeNameEl.textContent = recipeObject.title
     savedCuisineNameEl.textContent = recipeObject.cuisine
 
-    //delete button 
+    //delete button attached to each recipe ID
     var deleteButtonEl = document.createElement("button");
     deleteButtonEl.textContent = "Remove";
     deleteButtonEl.className = "btn delete-btn";
     deleteButtonEl.setAttribute("recipe-id", recipeObject.id);
+
+    //add event to delete button that removes the card and the recipe from local storage
     deleteButtonEl.addEventListener("click", function () {
         event.preventDefault()
         var recipeDeleted = document.querySelector(".card[recipe-id='" + recipeObject.id + "']");
         recipeDeleted.remove()
 
-        console.log(savedRecipes)
         var updatedRecipes = []
 
         for (var i=0; i < savedRecipes.length; i++) {
@@ -112,10 +118,15 @@ var displaySavedRecipes = function (recipeObject) {
         containerRecipeEl.setAttribute("class","colA col-sm-6 col-md-5 offset-md-5 col-lg-4 offset-lg-1 mb-2")
         containerMovieEl.setAttribute("class", "colB col-sm-6 col-md-5 offset-md-5 col-lg-4 offset-lg-1 mb-2")
 
+        //if user clicks a card, it will load a Comedy movie if genre value is blank
         if (!dropdownMovieEl.value) {
             dropdownMovieEl.value = "Comedy"
             getGenreInfo(dropdownMovieEl.value)
+        } else {
+            //just load user choice for genre
+            getGenreInfo(dropdownMovieEl.value)
         }
+
         
         //set array to current recipe data
         recipes = {
@@ -131,12 +142,13 @@ var displaySavedRecipes = function (recipeObject) {
         
     } )
 
+    //append to card element
     savedRecipeInfoEl.appendChild(savedRecipeNameEl)
     savedRecipeInfoEl.appendChild(savedCuisineNameEl)
     savedRecipeCardEl.appendChild(savedRecipeInfoEl)
     savedRecipeCardEl.appendChild(deleteButtonEl)
    
-    
+    //append ot saved container
     containerSavedRecipesEl.appendChild(savedRecipeCardEl)
     
 }
@@ -155,16 +167,19 @@ var displaySavedMovies = function (moviearray) {
     var savedMoviegenreEl = document.createElement("p")
     savedMoviegenreEl.textContent = moviearray.genre
 
-    //delete button 
+    //delete button
     var deleteButtonEl = document.createElement("button");
     deleteButtonEl.textContent = "Remove";
     deleteButtonEl.className = "btn delete-btn";
     deleteButtonEl.setAttribute("movie-id", moviearray.id);
+    //add Evenet listener to remove movie from local storage and card element
     deleteButtonEl.addEventListener("click", function () {
         event.preventDefault()
+        //find matching card
         var movieDeleted = document.querySelector(".card[movie-id='" + moviearray.id + "']");
         movieDeleted.remove()
 
+        //updated array and then remove matching ID
         var updatedMovies = []
 
         for (var i=0; i<savedMovies.length; i++) {
@@ -187,8 +202,11 @@ var displaySavedMovies = function (moviearray) {
         containerRecipeEl.setAttribute("class","colA col-sm-6 col-md-5 offset-md-5 col-lg-4 offset-lg-1 mb-2")
         containerMovieEl.setAttribute("class", "colB col-sm-6 col-md-5 offset-md-5 col-lg-4 offset-lg-1 mb-2")
 
+        //depending on value in dropdown when card is clicked, run code or enter Chinese for user efficiency
         if (!dropdownRecipeEl.value) {
             dropdownRecipeEl.value = "Chinese";
+            getRandomRecipe(dropdownRecipeEl.value)
+        } else {
             getRandomRecipe(dropdownRecipeEl.value)
         }
 
@@ -214,6 +232,7 @@ var displaySavedMovies = function (moviearray) {
     savedMovieCardEl.appendChild(savedMovieInfoEl)
     savedMovieCardEl.appendChild(deleteButtonEl)
 
+    //append container to saved sections
     containerSavedMoviesEl.appendChild(savedMovieCardEl)
     
 }
@@ -225,7 +244,7 @@ var displayMoviePoster = function (movieTitle, posterId) {
 
     //posterId identifies unique poster identifier for movie
     var posterUrl = "https://image.tmdb.org/t/p/w200/" + posterId
-    console.log(posterUrl)
+
 
     //create div and img elements to hold image
     var posterEl = document.createElement("div")
@@ -308,10 +327,7 @@ var displayMovieInfo = function (data) {
 
 
         for (var i = 0; i < savedMovies.length; i++) {
-            console.log(savedMovies)
             if (movies.id === savedMovies[i].id) {
-                console.log(movies.id)
-                console.log(savedMovies[i].id)
                 var prevSave = true
                 }
 
@@ -338,7 +354,6 @@ var getGenreInfo = function (choice) {
 
     fetch(genreUrl).then(function(response) {
         response.json().then(function(data) {
-        console.log(data);
         
         //for loop to find the ID for matching choice
         for (var i=0; i < data.genres.length; i++)
@@ -362,7 +377,6 @@ var getMovieArray = function (genreId, genreName) {
     var movieArrayURL = "https://api.themoviedb.org/3/discover/movie?api_key=" + APIKeyMovieDB + "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=" + pageNumber + "&with_genres=" + genreId;
     fetch(movieArrayURL).then(function(response) {
         response.json().then(function(data) {
-            console.log(data);
         
         //get a random movie from the random page
         randomMovie = Math.floor(Math.random() * Math.floor(20))
@@ -371,6 +385,7 @@ var getMovieArray = function (genreId, genreName) {
         var movieTitle = data.results[randomMovie].title 
         var posterId = data.results[randomMovie].poster_path
         
+        //set working array to current information, in case of save. 
         movies = {
             id: movieId,
             genre: genreName,
@@ -390,7 +405,6 @@ var getMovieInfo = function (movieId) {
     var getMovieDetailsUrl = "https://api.themoviedb.org/3/movie/" + movieId + "?api_key=" + APIKeyMovieDB + "&language=en-US";
     fetch(getMovieDetailsUrl).then(function(response) {
         response.json().then(function(data) {
-            console.log(data);
 
     idIMDB = data.imdb_id;
 
@@ -405,7 +419,6 @@ var getIMDBinfo = function (idIMDB) {
     var getMovieInfoIMDBUrl = "http://www.omdbapi.com/?i=" + idIMDB + "&apikey=" + APIKeyOMDB;
     fetch(getMovieInfoIMDBUrl).then(function(response) {
         response.json().then(function(data) {
-            console.log(data);
 
     displayMovieInfo(data)
 
@@ -424,7 +437,6 @@ var getRandomRecipe = function (cuisineType) {
     var typeFoodUrl = "https://api.spoonacular.com/recipes/complexSearch?cuisine=" + cuisineType + "&number=100&apiKey=" + APIKeySpoon + "&offset=" + offsetId; 
     fetch(typeFoodUrl).then(function(response) {
         response.json().then(function(data) {
-            console.log(data);
             
             //random recipe
             randomFoodId = Math.floor(Math.random() * Math.floor(100))
@@ -441,14 +453,15 @@ var getRecipeInfo = function(foodId){
     var recInfoUrl ="https://api.spoonacular.com/recipes/" + foodId + "/information?apiKey=" + APIKeySpoon;
     fetch(recInfoUrl).then(function(response) {
         response.json().then(function(data) {
-            console.log(data);
-            displayFoodRecipe(foodId, data);
+
+        displayFoodRecipe(foodId, data);
 })
 })
 }
 
 var displayFoodRecipe = function(foodId, data) {
 
+    //clear content from the section
     containerRecipeEl.textContent = ""
 
     var foodTitle = data.title
@@ -463,9 +476,6 @@ var displayFoodRecipe = function(foodId, data) {
         title: foodTitle,
         cuisine: foodCuisine
     };
-
-
-    console.log(recipes)
 
     var recipeInfoEl = document.createElement("div");
     var recipeNameEl = document.createElement("h3");
@@ -505,9 +515,8 @@ var displayFoodRecipe = function(foodId, data) {
     saveRecipeBtn.setAttribute("class", "btn-recipenew");
     saveRecipeBtn.textContent = "Save for Later"
     saveRecipeBtn.addEventListener("click", function() {
-
+        //added logic so you can't save twice
         for (var i = 0; i < savedRecipes.length; i++) {
-            console.log(recipes)
             if (recipes.id === savedRecipes[i].id) {
                 var prevSave = true
                 }
@@ -522,7 +531,6 @@ var displayFoodRecipe = function(foodId, data) {
     });
     
     containerRecipeEl.appendChild(saveRecipeBtn)
-
 
     containerRecipeEl.appendChild(newRecipeBtn)
 
@@ -540,7 +548,6 @@ var generateRandRecMov = function(choiceMov, choiceRec) {
         }
 
         if (!choiceMov) {
-            console.log("hi")
             document.getElementById("modal").style.display = "block";
             document.getElementById("modalText").innerHTML = "Please choose a movie genre!";
             return
@@ -573,7 +580,7 @@ buttonKickback.addEventListener("click", function () {
     generateRandRecMov(choiceMovie, choiceRecipe)
 });
 
-// X button and CLOSE button
+// X button and CLOSE button on modals
 var button = document.getElementById("close");
 button.onclick = function() {
     var div = document.getElementById("modal");
