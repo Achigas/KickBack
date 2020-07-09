@@ -67,12 +67,39 @@ var displaySavedRecipes = function (recipeObject) {
 
     var savedRecipeCardEl = document.createElement("div");
     savedRecipeCardEl.setAttribute("class", "card")
+    savedRecipeCardEl.setAttribute("recipe-id", recipeObject.id)
     var savedRecipeInfoEl = document.createElement ("div");
     savedRecipeInfoEl.setAttribute("class", "card-body saved-card")
     var savedRecipeNameEl = document.createElement("h5")
     var savedCuisineNameEl = document.createElement("p")
     savedRecipeNameEl.textContent = recipeObject.title
     savedCuisineNameEl.textContent = recipeObject.cuisine
+
+    //delete button 
+    var deleteButtonEl = document.createElement("button");
+    deleteButtonEl.textContent = "Remove";
+    deleteButtonEl.className = "btn delete-btn";
+    deleteButtonEl.setAttribute("recipe-id", recipeObject.id);
+    deleteButtonEl.addEventListener("click", function () {
+        event.preventDefault()
+        var recipeDeleted = document.querySelector(".card[recipe-id='" + recipeObject.id + "']");
+        recipeDeleted.remove()
+
+        var updatedRecipes = []
+
+        for (var i=0; i<savedRecipes.length; i++) {
+            if (savedRecipes[i].id !== recipeObject.id) {
+                updatedecipes.push(savedRecipes[i])
+            }
+        }
+
+        savedRecipes = updatedRecipes
+
+        saveRecipe()
+
+    })
+
+    //make each card a button to load the page/ load the recipe or movie data
     savedRecipeInfoEl.addEventListener("click", function() {
 
         //handles display if clicked without using Kickback button yet
@@ -92,6 +119,7 @@ var displaySavedRecipes = function (recipeObject) {
             cuisine: recipeObject.cuisine
         }
 
+        //set dropdown for user efficiency 
         dropdownRecipeEl.value = recipeObject.cuisine
 
         getRecipeInfo(recipeObject.id)
@@ -100,7 +128,9 @@ var displaySavedRecipes = function (recipeObject) {
 
     savedRecipeInfoEl.appendChild(savedRecipeNameEl)
     savedRecipeInfoEl.appendChild(savedCuisineNameEl)
+    savedRecipeInfoEl.appendChild(deleteButtonEl)
     savedRecipeCardEl.appendChild(savedRecipeInfoEl)
+   
     
     containerSavedRecipesEl.appendChild(savedRecipeCardEl)
     
@@ -112,12 +142,39 @@ var displaySavedMovies = function (moviearray) {
     //create card elements for saved movies 
     var savedMovieCardEl = document.createElement("div");
     savedMovieCardEl.setAttribute("class", "card")
+    savedMovieCardEl.setAttribute("movie-id", moviearray.id)
     var savedMovieInfoEl = document.createElement("div")
     savedMovieInfoEl.setAttribute("class", "card-body saved-card")
     var savedMovieNameEl = document.createElement("h5")
     savedMovieNameEl.textContent = moviearray.title
     var savedMoviegenreEl = document.createElement("p")
     savedMoviegenreEl.textContent = moviearray.genre
+
+    //delete button 
+    var deleteButtonEl = document.createElement("button");
+    deleteButtonEl.textContent = "Remove";
+    deleteButtonEl.className = "btn delete-btn";
+    deleteButtonEl.setAttribute("movie-id", moviearray.id);
+    deleteButtonEl.addEventListener("click", function () {
+        event.preventDefault()
+        var movieDeleted = document.querySelector(".card[movie-id='" + moviearray.id + "']");
+        movieDeleted.remove()
+
+        var updatedMovies = []
+
+        for (var i=0; i<savedMovies.length; i++) {
+            if (savedMovies[i].id !== moviearray.id) {
+                updatedMovies.push(savedMovies[i])
+            }
+        }
+
+        savedMovies = updatedMovies 
+
+        saveMovie()
+
+    })
+
+    //create click event for card to pull up recipe/set up page
     savedMovieInfoEl.addEventListener("click", function () {
 
         //handles display if clicked without using Kickback button yet
@@ -148,6 +205,7 @@ var displaySavedMovies = function (moviearray) {
 
     savedMovieInfoEl.appendChild(savedMovieNameEl)
     savedMovieInfoEl.appendChild(savedMoviegenreEl)
+    savedMovieInfoEl.appendChild(deleteButtonEl)
     savedMovieCardEl.appendChild(savedMovieInfoEl)
 
     containerSavedMoviesEl.appendChild(savedMovieCardEl)

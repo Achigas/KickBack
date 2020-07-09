@@ -164,6 +164,15 @@ footer {
     outline: none;
 }
 
+.delete-btn {
+    font-size: 1.4rem;
+    padding: 5px 7px;
+    margin: 3px;
+    background: teal;
+    color: #fff;
+  }
+  
+
 body {
     background-image: url("../images/brickwall.jpg");
 }
