@@ -18,7 +18,7 @@ var savedMovies = []
 
 //API Keys
 var APIKeyOMDB = "70f249c8"
-var APIKeySpoon = "1342f319f99f46d582bae8ebd7c7a61e"
+var APIKeySpoon = "2b38497b30584d7d914e0006ce05f848"
 var APIKeyMovieDB = "4ee2048f656df52ca79c1b3928871706"
 
 //save recipes into local storage
@@ -321,7 +321,7 @@ var displayMovieInfo = function (data) {
 
     var saveMovieBtn = document.createElement("btn")
     saveMovieBtn.setAttribute("type", "submit");
-    saveMovieBtn.setAttribute("class","btn-movienew m-l-5");
+    saveMovieBtn.setAttribute("class","btn-saveMovie");
     saveMovieBtn.textContent = "Save for Later"
     saveMovieBtn.addEventListener("click", function() {
 
@@ -512,7 +512,7 @@ var displayFoodRecipe = function(foodId, data) {
 
     var saveRecipeBtn = document.createElement("btn")
     saveRecipeBtn.setAttribute("type", "submit");
-    saveRecipeBtn.setAttribute("class", "btn-recipenew");
+    saveRecipeBtn.setAttribute("class", "btn-saveRecipe");
     saveRecipeBtn.textContent = "Save for Later"
     saveRecipeBtn.addEventListener("click", function() {
         //added logic so you can't save twice

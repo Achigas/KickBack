@@ -125,6 +125,7 @@ footer {
     border-width: 6px;
     outline: none;
     font-size: small;
+    margin-right: 4%;
 }
 
 .btn-recipenew {
@@ -137,6 +138,7 @@ footer {
     outline: none;
     font-size: small;
     margin-left: -2%;
+    margin-right: 4%;
 }
 
 .btn-submit {
@@ -149,6 +151,7 @@ footer {
     margin-right: 55%;
     outline: none;
     margin-top: 0%;
+    font-size: larger;
     font-family: 'Purple Purse';
 }
 
@@ -172,6 +175,30 @@ footer {
 .btn-submit:hover {
     background-color: grey;
     cursor: pointer;
+}
+
+.btn-saveRecipe {
+    background-color: teal;
+    color: white;
+    font-weight: bold;
+    border-color: teal;
+    border-style: outset;
+    border-width: 6px;
+    outline: none;
+    font-size: small;
+    margin-right: 5%;
+}
+
+.btn-saveMovie {
+    background-color: teal;
+    color: white;
+    font-weight: bold;
+    border-color: teal;
+    border-style: outset;
+    border-width: 6px;
+    outline: none;
+    font-size: small;
+    margin-right: 5%;
 }
 
 .delete-btn {
