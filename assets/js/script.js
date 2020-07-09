@@ -18,7 +18,7 @@ var savedMovies = []
 
 //API Keys
 var APIKeyOMDB = "70f249c8"
-var APIKeySpoon = "1342f319f99f46d582bae8ebd7c7a61e"
+var APIKeySpoon = "42efe7879e514db4a352ca064d9a3edc"
 var APIKeyMovieDB = "4ee2048f656df52ca79c1b3928871706"
 
 //save recipes into local storage
