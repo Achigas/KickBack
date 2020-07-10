@@ -107,12 +107,16 @@ footer {
 }
 
 .btn-movie:hover {
-    background-color: grey;
+    -webkit-box-shadow: inset 0px 0px 10px #004080;
+         -moz-box-shadow: inset 0px 0px 10px #004080;
+              box-shadow: inset 0px 0px 10px #004080;
     cursor: pointer;
 }
 
 .btn-recipe:hover {
-    background-color: grey;
+    -webkit-box-shadow: inset 0px 0px 10px #004080;
+         -moz-box-shadow: inset 0px 0px 10px #004080;
+              box-shadow: inset 0px 0px 10px #004080;
     cursor: pointer;
 }
 
@@ -157,23 +161,31 @@ footer {
 
 .btn-submit:focus{
     background-color:darkmagenta;
-    background-color: darkmagenta;
+    -webkit-box-shadow: inset 0px 0px 10px #68008b;
+     -moz-box-shadow: inset 0px 0px 10px #68008b;
+          box-shadow: inset 0px 0px 10px #68008b;
     outline: none;
 }
 
 .btn-movienew:hover {
-    background-color: grey;
+    -webkit-box-shadow: inset 0px 0px 10px #004080;
+         -moz-box-shadow: inset 0px 0px 10px #004080;
+              box-shadow: inset 0px 0px 10px #004080;
     cursor: pointer;
 }
 
 
 .btn-recipenew:hover {
-    background-color: grey;
+    -webkit-box-shadow: inset 0px 0px 10px #004080;
+    -moz-box-shadow: inset 0px 0px 10px #004080;
+         box-shadow: inset 0px 0px 10px #004080;
     cursor: pointer;
 }
 
 .btn-submit:hover {
-    background-color: grey;
+    -webkit-box-shadow: inset 0px 0px 10px #68008b;
+         -moz-box-shadow: inset 0px 0px 10px #68008b;
+              box-shadow: inset 0px 0px 10px #68008b;
     cursor: pointer;
 }
 
@@ -202,19 +214,45 @@ footer {
 }
 
 .btn-saveMovie:hover {
-    background-color: grey;
+    -webkit-box-shadow: inset 0px 0px 10px #004080;
+         -moz-box-shadow: inset 0px 0px 10px #004080;
+              box-shadow: inset 0px 0px 10px #004080;
     cursor: pointer;
+}
+.btn-saveMovie:active {
+  -webkit-box-shadow: inset 0px 0px 10px #004080;
+     -moz-box-shadow: inset 0px 0px 10px #004080;
+          box-shadow: inset 0px 0px 10px #004080;
+   outline: none;
+}
+.btn-saveMovie:focus{
+  -webkit-box-shadow: inset 0px 0px 10px #004080;
+     -moz-box-shadow: inset 0px 0px 10px #004080;
+          box-shadow: inset 0px 0px 10px #004080;
+   outline: none;
 }
 
 .btn-saveRecipe:hover {
-    background-color: grey;
+    -webkit-box-shadow: inset 0px 0px 10px #004080;
+         -moz-box-shadow: inset 0px 0px 10px #004080;
+              box-shadow: inset 0px 0px 10px #004080;
     cursor: pointer;
 }
 
-.btn-saveMovie:focus{
-    border-style: inset;
+.btn-saveRecipe:active {
+      -webkit-box-shadow: inset 0px 0px 10px #004080;
+         -moz-box-shadow: inset 0px 0px 10px #004080;
+              box-shadow: inset 0px 0px 10px #004080;
     outline: none;
-}
+    }
+.btn-saveRecipe:focus{
+      -webkit-box-shadow: inset 0px 0px 10px #004080;
+         -moz-box-shadow: inset 0px 0px 10px #004080;
+              box-shadow: inset 0px 0px 10px #004080;
+    outline: none;
+    }
+
+
 
 .delete-btn {
     font-size: 1.0rem;
@@ -222,7 +260,22 @@ footer {
     margin: 3px;
     background: teal;
     color: #fff;
-  }
+}
+
+.delete-btn:active {
+    -webkit-box-shadow: inset 0px 0px 10px #004080;
+     -moz-box-shadow: inset 0px 0px 10px #004080;
+          box-shadow: inset 0px 0px 10px #004080;
+   outline: none;
+}
+
+.delete-btn:focus {
+    -webkit-box-shadow: inset 0px 0px 10px #004080;
+     -moz-box-shadow: inset 0px 0px 10px #004080;
+          box-shadow: inset 0px 0px 10px #004080;
+   outline: none;
+   color: #fff;
+}
   
 
 body {
@@ -235,9 +288,9 @@ body {
     margin-left: 12%;
 }
 
-.row {
+/*.row {
     margin-left: -7%;
-}
+}*/
 
 .colA, .colB {
     display: inline-block;
@@ -311,3 +364,18 @@ body {
     cursor: pointer;
     background-color: gray
 }
+@media only screen 
+  and (min-device-width: 500px) 
+  and (max-device-width: 812px) { 
+
+    .btn-recipe {
+        background-color: red;
+    }
+    .btn-movie {
+        display: inline-flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        font-size: 12px;
+    }
+};
