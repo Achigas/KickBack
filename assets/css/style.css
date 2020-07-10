@@ -1,118 +1,381 @@
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 .title {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 50pt;
     color: white;
+    font-family: 'Purple Purse';
+    margin-top: -3%;
+    margin-bottom: 1%;
+    text-shadow: black 1px 1px;
 }
 
 .jumbotron {
     background-color: teal;
+    height: 12.5rem;
+    width: 100%;
 }
 
 .lead {
-    font-weight: bold;
-    background-color: gray;
     color: white;
-    border-left: solid white;
-    border-top: solid white;
-    border-right: solid white;
-    border-bottom: solid white;
     line-height: 1.3;
-}
-
-.intro {
-    width: 70%;
-    margin-left: 15%;
-}
-
-.footer {
-    font-weight: bold;
-    background-color: teal;
-    color: white;
-    border-left: solid white;
-    border-top: solid white;
-    border-right: solid white;
-    border-bottom: solid white;
-}
-
-.outro {
-    width: 50%;
-    margin-left: 25%;
-    margin-top: 3%;
-}
-
-.btn-danger, .btn-warning {
-    background-color: teal;
-    color: white;
-    border-color: white;
-}
-
-.btn-danger:hover {
-    background-color:purple;
-    border-color: purple;
-}
-
-.btn-warning:hover {
-    background-color:purple;
-    border-color: purple;
-    color: white;
-}
-
-
-#recipeDropdown {
-    margin-left: 38%;
-    grid-row-gap: 50px;
-    grid-column-gap: 50px;
-    padding: 10px;
-  }
-
-#movieDropdown {
-    margin-left: 5%;
-    grid-row-gap: 50px;
-    grid-column-gap: 50px;
-    padding: 10px;
-  }
-
-.dropdown-menu {
+    font-family: Georgia, 'Times New Roman', Times, serif;
     text-align: center;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    top: 100% !important; 
+    margin-top: -1.5%;
+    font-size: 14pt;
+    font-size: large;
+    text-shadow: black 1px 1px;
 }
 
+.directions {
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 11pt;
+    margin-top: -.7%;
+    font-weight: bold;
+}
+
+.name {
+    font-family: 'Purple Purse';
+}
+
+#pictures {
+    display: flex;
+    margin-left: 5%;
+    margin-right: 7%;
+}
+
+.heroA {
+    width: 50%;
+    border-left: solid teal 12px;
+    border-top: solid  teal 12px;
+    border-right: solid  teal 12px;
+    border-bottom: solid  teal 12px;
+    image-rendering: optimizeQuality;
+}
+
+.heroB {
+    width: 50%;
+    margin-left: 2%;
+    border-left: solid teal 12px;
+    border-top: solid  teal 12px;
+    border-right: solid  teal 12px;
+    border-bottom: solid  teal 12px;
+    image-rendering: optimizeQuality;
+}
+
+footer {
+    background-color: teal;
+    text-align: center;
+    color: white;
+    margin-top: 3%;
+    font-size:12pt;
+    font-family: 'Purple Purse';
+    height: 30px;
+    padding-top: 3px;
+    text-shadow: black 1px 1px;
+}
+
+.options { 
+   display: flex;
+   margin-bottom: 1%;
+   margin-left: 20%;
+   margin-top: 1%;
+}
+
+.btn-recipe {
+    background-color: teal;
+    color: white;
+    font-weight: bold;
+    border-color: teal;
+    border-style: outset;
+    border-width: 8px;
+    outline: none;
+}
+
+.btn-movie {
+    background-color: teal;
+    color: white;
+    font-weight: bold;
+    border-color: teal;
+    border-style: outset;
+    border-width: 8px;
+    outline: none;
+    margin-left: 40%;
+}
+
+.btn-movie:hover {
+    -webkit-box-shadow: inset 0px 0px 10px #004080;
+         -moz-box-shadow: inset 0px 0px 10px #004080;
+              box-shadow: inset 0px 0px 10px #004080;
+    cursor: pointer;
+}
+
+.btn-recipe:hover {
+    -webkit-box-shadow: inset 0px 0px 10px #004080;
+         -moz-box-shadow: inset 0px 0px 10px #004080;
+              box-shadow: inset 0px 0px 10px #004080;
+    cursor: pointer;
+}
+
+.btn-movienew {
+    background-color: teal;
+    color: white;
+    font-weight: bold;
+    border-color: teal;
+    border-style: outset;
+    border-width: 6px;
+    outline: none;
+    font-size: small;
+    margin-right: 4%;
+}
+
+.btn-recipenew {
+    background-color: teal;
+    color: white;
+    font-weight: bold;
+    border-color: teal;
+    border-style: outset;
+    border-width: 6px;
+    outline: none;
+    font-size: small;
+    margin-left: -2%;
+    margin-right: 4%;
+}
+
+.btn-submit {
+    background-color: darkmagenta;
+    color: white;
+    font-weight: bold;
+    border-color:darkmagenta;
+    border-width: 8px;
+    margin-left: 45.5%;
+    margin-right: 55%;
+    outline: none;
+    margin-top: 0%;
+    font-size: larger;
+    font-family: 'Purple Purse';
+}
+
+.btn-submit:focus{
+    background-color:darkmagenta;
+    -webkit-box-shadow: inset 0px 0px 10px #68008b;
+     -moz-box-shadow: inset 0px 0px 10px #68008b;
+          box-shadow: inset 0px 0px 10px #68008b;
+    outline: none;
+}
+
+.btn-movienew:hover {
+    -webkit-box-shadow: inset 0px 0px 10px #004080;
+         -moz-box-shadow: inset 0px 0px 10px #004080;
+              box-shadow: inset 0px 0px 10px #004080;
+    cursor: pointer;
+}
+
+
+.btn-recipenew:hover {
+    -webkit-box-shadow: inset 0px 0px 10px #004080;
+    -moz-box-shadow: inset 0px 0px 10px #004080;
+         box-shadow: inset 0px 0px 10px #004080;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    -webkit-box-shadow: inset 0px 0px 10px #68008b;
+         -moz-box-shadow: inset 0px 0px 10px #68008b;
+              box-shadow: inset 0px 0px 10px #68008b;
+    cursor: pointer;
+}
+
+.btn-saveRecipe {
+    background-color: teal;
+    color: white;
+    font-weight: bold;
+    border-color: teal;
+    border-style: outset;
+    border-width: 6px;
+    outline: none;
+    font-size: small;
+    margin-right: 5%;
+}
+
+.btn-saveMovie {
+    background-color: teal;
+    color: white;
+    font-weight: bold;
+    border-color: teal;
+    border-style: outset;
+    border-width: 6px;
+    outline: none;
+    font-size: small;
+    margin-right: 5%;
+}
+
+.btn-saveMovie:hover {
+    -webkit-box-shadow: inset 0px 0px 10px #004080;
+         -moz-box-shadow: inset 0px 0px 10px #004080;
+              box-shadow: inset 0px 0px 10px #004080;
+    cursor: pointer;
+}
+.btn-saveMovie:active {
+  -webkit-box-shadow: inset 0px 0px 10px #004080;
+     -moz-box-shadow: inset 0px 0px 10px #004080;
+          box-shadow: inset 0px 0px 10px #004080;
+   outline: none;
+}
+.btn-saveMovie:focus{
+  -webkit-box-shadow: inset 0px 0px 10px #004080;
+     -moz-box-shadow: inset 0px 0px 10px #004080;
+          box-shadow: inset 0px 0px 10px #004080;
+   outline: none;
+}
+
+.btn-saveRecipe:hover {
+    -webkit-box-shadow: inset 0px 0px 10px #004080;
+         -moz-box-shadow: inset 0px 0px 10px #004080;
+              box-shadow: inset 0px 0px 10px #004080;
+    cursor: pointer;
+}
+
+.btn-saveRecipe:active {
+      -webkit-box-shadow: inset 0px 0px 10px #004080;
+         -moz-box-shadow: inset 0px 0px 10px #004080;
+              box-shadow: inset 0px 0px 10px #004080;
+    outline: none;
+    }
+.btn-saveRecipe:focus{
+      -webkit-box-shadow: inset 0px 0px 10px #004080;
+         -moz-box-shadow: inset 0px 0px 10px #004080;
+              box-shadow: inset 0px 0px 10px #004080;
+    outline: none;
+    }
+
+
+
+.delete-btn {
+    font-size: 1.0rem;
+    padding: 2px 2px;
+    margin: 3px;
+    background: teal;
+    color: #fff;
+}
+
+.delete-btn:active {
+    -webkit-box-shadow: inset 0px 0px 10px #004080;
+     -moz-box-shadow: inset 0px 0px 10px #004080;
+          box-shadow: inset 0px 0px 10px #004080;
+   outline: none;
+}
+
+.delete-btn:focus {
+    -webkit-box-shadow: inset 0px 0px 10px #004080;
+     -moz-box-shadow: inset 0px 0px 10px #004080;
+          box-shadow: inset 0px 0px 10px #004080;
+   outline: none;
+   color: #fff;
+}
+  
 
 body {
     background-image: url("../images/brickwall.jpg");
 }
 
-.colA {
-    background-color: gray;
-    text-align: center;
-    color: white;
-    text-decoration: underline white;
-    font-size: larger;
-    padding-top: 10px;
-    font-weight: bold;
-    border-left: solid white;
-    border-top: solid white;
-    border-right: solid white;
-    border-bottom: solid white;
-}
-
-.colB {
-    background-color: gray;
-    height: 300px;
-    text-align: center;
-    color: white;
-    text-decoration: underline white;
-    font-size: larger;
-    padding-top: 10px;
-    font-weight: bold;
-    border-left: solid white;
-    border-top: solid white;
-    border-right: solid white;
-    border-bottom: solid white;
-}
-
 .results {
-    margin-left: 20%;
+    text-align: center;
+    text-transform: uppercase;
+    margin-left: 12%;
 }
+
+/*.row {
+    margin-left: -7%;
+}*/
+
+.colA, .colB {
+    display: inline-block;
+    background-color: lightgray;
+    border-left: solid teal;
+    border-top: solid  teal;
+    border-right: solid  teal;
+    border-bottom: solid  teal;
+    border-width: 4px;
+    padding-top: 40px;
+    padding-left: 30px;
+    padding-bottom: 40px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: black;
+}
+
+
+.recipeImage {
+    width: 100%;
+    height: 40%;
+    image-rendering: optimizeQuality;
+    margin-left: -4%;
+    margin-bottom: 2%;
+    border-style: outset;
+}
+
+.recipeName {
+    text-align: center;
+    font-size: xx-large;
+    margin-top: 15%;
+}
+
+.recipePreptime {
+    text-align: center;
+}
+
+.posterImg {
+    border-style: outset;
+    margin-bottom: 3%;
+}
+
+.movieTitle {
+    text-align: left;
+    font-size: xx-large;
+    margin-top: 2px;
+    text-align: center;
+}
+
+.moviePlot {
+    text-align: justify;
+    margin-right: 3%;
+}
+
+.movieExtraInfo {
+    margin-top: -1%;
+    margin-bottom: 2%;
+}
+
+.card {
+    border-radius: 10px;
+}
+
+
+.saved-card {
+    background-color: teal;
+    border-radius: 15px;
+    margin: 3px;
+}
+
+.saved-card:hover {
+    cursor: pointer;
+    background-color: gray
+}
+@media only screen 
+  and (min-device-width: 500px) 
+  and (max-device-width: 812px) { 
+
+    .btn-recipe {
+        background-color: red;
+    }
+    .btn-movie {
+        display: inline-flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        font-size: 12px;
+    }
+};

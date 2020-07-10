@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Purple+Purse&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Kickback</title>
 </head>
@@ -11,45 +12,96 @@
     <header>
     <div class="jumbotron jumbotron-fluid" id="header">
         <div class="container.fluid">
-          <h1 class="title text-center">Kickback</h1>
+          <h1 class="title text-center">KickBack!</h1>
+          <p class="lead text-center"> Have to stay in? No problem!  <br> Make a night of it with customized dinner recipes and movie suggestions.</p>
+          <p class="directions"> Pick a recipe and movie category, hit the <span class="name">KickBack</span> button and enjoy!</p>
         </div>
     </div>
     </header>
     <main>
-     <div class="intro">
-     <p class="lead text-center"> Have to stay in? No problem!  <br> Make a night of it with customized dinner recipes and movie suggestions.</p>
+      <div>
+        <button type="submit" id="kickback-submit" class="btn-submit">KickBack!</button>
       </div>
-      <div class="btn-group" id="recipeDropdown">
-        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Recipes
-        </button>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Horror</a>
-          <a class="dropdown-item" href="#">Comedy</a>
-          <a class="dropdown-item" href="#">Romance</a>
-        </div>
-      </div>
-      <div class="btn-group" id="movieDropdown">
-        <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Movies
-        </button>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Easy</a>
-          <a class="dropdown-item" href="#">Intermediate</a>
-          <a class="dropdown-item" href="#">Challenging</a>
-        </div>
+      <div class="options">
+          <select name="recipe-choice" id="recipe-dropdown" class="btn-recipe">
+            <option value="" disabled selected>RECIPES</option>
+            <option value="African">AFRICAN</option>
+            <option value="American">AMERICAN</option>
+            <option value="Cajun">CAJUN</option>
+            <option value="Chinese">CHINESE</option>
+            <option value="Greek">GREEK</option>
+            <option value="Indian">INDIAN</option>
+            <option value="Italian">ITALIAN</option>
+            <option value="Japanese">JAPANESE</option>
+            <option value="Korean">KOREAN</option>
+            <option value="Mediterranean">MEDITERRANEAN</option>
+            <option value="Mexican">MEXICAN</option>
+            <option value="Middle Eastern">MIDDLE EASTERN</option>
+            <option value="Southern">SOUTHERN</option>
+            <option value="Spanish">SPANISH</option>
+            <option value="Thai">THAI</option>
+            <option value="Vietnamese">VIETNAMESE</option>
+          </select>
+          <select name="movie-choice" id="movie-dropdown" class="btn-movie">
+            <option value="" disabled selected>MOVIES</option>
+            <option value="Action">ACTION</option>
+            <option value="Adventure">ADVENTURE</option>
+            <option value="Animation">ANIMATION</option>
+            <option value="Comedy">COMEDY</option>
+            <option value="Crime">CRIME</option>
+            <option value="Documentary">DOCUMENTARY</option>
+            <option value="Drama">DRAMA</option>
+            <option value="Horror">HORROR</option>
+            <option value="Music">MUSIC</option>
+            <option value="Romance">ROMANCE</option>
+            <option value="Science Fiction">SCIENCE FICTION</option>
+            <option value="TV Movie">TV MOVIE</option>
+            <option value="Thriller">THRILLER</option>
+            <option value="War">WAR</option>
+            <option value="Western">WESTERN</option>
+          </select>
       </div>
       <div class="results">
-        <div class="row row-cols-sm-6 row-cols-lg-8">
-          <div id="recipe-container" class="colA col-sm-4 col-md-5 col-lg-4">Recipes</div>
-          <div id="movie-container" class="colB col-sm-6 col-md-5 offset-md-5 col-lg-4 offset-lg-1">Movies</div>
+        <div class="row row-cols-sm-10 row-cols-lg-2" id="results-container">
+          <div id="recipe-container">
+            <div id="recipe-buttons"></div>
+          </div>
+          <div id="movie-container">
+            <div id="movie-buttons"></div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="outro">
-        <p class="footer text-center">Now, KickBack,relax and enjoy the show!</p>
-    </div>
+      <div id="pictures">
+        <img class="heroA" src="./assets/images/family.jpg" alt="kickbackheroimage">
+        <img class="heroB" src="./assets/images/tv.jpg" alt="kickbackheroimage">
+      </div>
+      <div class="saved-data">
+        <div class="row row-cols-sm-6 row-cols-lg-2" id="saved=container">
+          <div id="saved-recipes"></div>
+          <div id="saved-movies"></div>
+      </div>
     </main>
+    <!--- MODAL -->
+    <div class="modal" id="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+         <div class="modal-content">
+           <div class="modal-header">
+              <h5 class="modal-title">Missing Item</h5>
+              <button type="button" id="close" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+           </div>
+           <div class="modal-body" id="modalText">
+              <p></p>
+           </div>
+            <div class="modal-footer">
+              <button type="button" id="ok" class="btn btn-primary">OK</button>
+           </div>
+         </div>
+      </div>
+    </div>
+          <!--MODAL END-->
+    <footer>
+        <p class="footer text-center">KickBack! + Relax! + Enjoy! <span class="copy">&copy;2020</span></p>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
