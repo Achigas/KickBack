@@ -109,9 +109,31 @@ footer {
     font-weight: bold;
     border-color: teal;
     border-style: outset;
+    border-width: 8px;
+    outline: none;
+    margin-left: 40%;
+}
+
+.btn-movie:hover {
+    background-color: grey;
+    cursor: pointer;
+}
+
+.btn-recipe:hover {
+    background-color: grey;
+    cursor: pointer;
+}
+
+.btn-movienew {
+    background-color: teal;
+    color: white;
+    font-weight: bold;
+    border-color: teal;
+    border-style: outset;
     border-width: 6px;
     outline: none;
     font-size: small;
+    margin-right: 4%;
 }
 
 .btn-recipenew {
@@ -124,6 +146,7 @@ footer {
     outline: none;
     font-size: small;
     margin-left: -2%;
+    margin-right: 4%;
 }
 
 .btn-submit {
@@ -136,6 +159,7 @@ footer {
     margin-right: 55%;
     outline: none;
     margin-top: 0%;
+    font-size: larger;
     font-family: 'Purple Purse';
 }
 
@@ -145,6 +169,70 @@ footer {
     outline: none;
 }
 
+.btn-movienew:hover {
+    background-color: grey;
+    cursor: pointer;
+}
+
+
+.btn-recipenew:hover {
+    background-color: grey;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background-color: grey;
+    cursor: pointer;
+}
+
+.btn-saveRecipe {
+    background-color: teal;
+    color: white;
+    font-weight: bold;
+    border-color: teal;
+    border-style: outset;
+    border-width: 6px;
+    outline: none;
+    font-size: small;
+    margin-right: 5%;
+}
+
+.btn-saveMovie {
+    background-color: teal;
+    color: white;
+    font-weight: bold;
+    border-color: teal;
+    border-style: outset;
+    border-width: 6px;
+    outline: none;
+    font-size: small;
+    margin-right: 5%;
+}
+
+.btn-saveMovie:hover {
+    background-color: grey;
+    cursor: pointer;
+}
+
+.btn-saveRecipe:hover {
+    background-color: grey;
+    cursor: pointer;
+}
+
+.btn-saveMovie:focus{
+    border-style: inset;
+    outline: none;
+}
+
+.delete-btn {
+    font-size: 1.0rem;
+    padding: 2px 2px;
+    margin: 3px;
+    background: teal;
+    color: #fff;
+  }
+  
+
 body {
     background-image: url("../images/brickwall.jpg");
 }
@@ -152,13 +240,14 @@ body {
 .results {
     text-align: center;
     text-transform: uppercase;
+    margin-left: 12%;
 }
 
 .row {
     margin-left: -7%;
 }
 
-.colA {
+.colA, .colB {
     display: inline-block;
     background-color: lightgray;
     border-left: solid teal;
@@ -166,35 +255,13 @@ body {
     border-right: solid  teal;
     border-bottom: solid  teal;
     border-width: 4px;
-    margin-left: 9%;
     padding-top: 40px;
     padding-left: 30px;
     padding-bottom: 40px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: black;
-    font-weight: bold;
 }
 
-.colB {
-    display: inline-block;
-    background-color: lightgray;;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-weight: bold;
-    color: #2b2424;
-    border-left: solid teal;
-    border-top: solid  teal;
-    border-right: solid  teal;
-    border-bottom: solid  teal;
-    border-width: 4px;
-    padding-top: 40px;
-    padding-left: 30px;
-    padding-bottom: 40px;
-    margin-left: 13%;
-}
-
-.results {
-    margin-left: 7%;
-}
 
 .recipeImage {
     width: 100%;
@@ -235,4 +302,20 @@ body {
 .movieExtraInfo {
     margin-top: -1%;
     margin-bottom: 2%;
+}
+
+.card {
+    border-radius: 10px;
+}
+
+
+.saved-card {
+    background-color: teal;
+    border-radius: 15px;
+    margin: 3px;
+}
+
+.saved-card:hover {
+    cursor: pointer;
+    background-color: gray
 }
