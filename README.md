@@ -1,52 +1,51 @@
 # KickBack
-Plan your night! 
+Lockdown has you down? Plan a randomly-generated night in with Kickback!  
 
-API Key OMDB: 0f249c8
-API key Spoonacular Recipe: 2b38497b30584d7d914e0006ce05f848
 
 ## Table of contents
 * [General info](#general-info)
 * [Screenshots](#screenshots)
+* [URL](#URL)
 * [Technologies](#technologies)
-* [Setup](#setup)
 * [Features](#features)
 * [Status](#status)
 * [Inspiration](#inspiration)
-* [Contact](#contact)
 
 ## General info
-Add more general information about project. What the purpose of the project is? Motivation?
+KickBack! is a user-friendly random recipe and movie creator! We have had many nights in this year, and routines can get stale. Also, it can be hard to make a decision on which movies to watch. We've taken that difficulty away with KickBack! 
 
 ## Screenshots
-![Example screenshot](./img/screenshot.png)
+![Kickback! Screenshot](./img/screenshot.png)
+
+## URL
+[Kickback!](https://achigas.github.io/KickBack/)
 
 ## Technologies
-* Tech 1 - version 1.0
-* Tech 2 - version 2.0
-* Tech 3 - version 3.0
-
-## Setup
-Describe how to install / setup your local environement / add link to demo version.
-
-## Code Examples
-Show examples of usage:
-`put-your-code-here`
+* HTML5
+* CSS-3
+* Javascript
+* Spoonacular API
+* OMDB API
+* MovieDB API
 
 ## Features
 List of features ready and TODOs for future development
-* Awesome feature 1
-* Awesome feature 2
-* Awesome feature 3
+* 'Saved For Later' feature allows you to save recipes or movies for future!
+* Recipe picture links to blog or cookbook with the recipe instructions!
 
 To-do list:
-* Wow improvement to be done 1
-* Wow improvement to be done 2
+* Transition "Saved for later" to a new page
+* Add API to let you know where movies can be watched.
 
 ## Status
-Project is: _in progress_, _finished_, _no longer continue_ and why?
+Minimum Viable Product is complete. Enhancements are in progress. 
 
 ## Inspiration
-Add here credits. Project inspired by..., based on...
+The developers of KickBack! : 
 
-## Contact
-Created by [@flynerdpl](https://www.flynerd.pl/) - feel free to contact me!
+Jackelin Salinas
+Rochelle Ruiz
+Braiana daMota
+Alex Chigas
+
+We were inspired to create an application that was user-friendly with plenty of opportunties for growth! 
