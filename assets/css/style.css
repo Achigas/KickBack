@@ -1,3 +1,8 @@
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 .title {
     font-size: 50pt;
     color: white;
@@ -73,27 +78,10 @@ footer {
     text-shadow: black 1px 1px;
 }
 
-.copy {
-    font-size: 8pt;
+.options { 
+   display: flex;
+   margin-bottom: 1%;
 }
-
-.options {
-    display: flex;
-    margin-left: 30%;
-    margin-bottom: 1%;
-}
-
-.btn-recipe {
-    background-color: teal;
-    color: white;
-    font-weight: bold;
-    border-color: teal;
-    border-style: outset;
-    border-width: 8px;
-    margin-left: -70%;
-    outline: none;
-}
-
 .btn-movie {
     background-color: teal;
     color: white;
@@ -101,8 +89,18 @@ footer {
     border-color: teal;
     border-style: outset;
     border-width: 8px;
-    margin-left: 166%;
+    margin-left: 460%;
     outline: none;
+}
+.btn-recipe {
+    background-color: teal;
+    color: white;
+    font-weight: bold;
+    border-color: teal;
+    border-style: outset;
+    border-width: 8px;
+    outline: none;
+    margin-left: 175%;
 }
 
 .btn-movienew {
@@ -114,7 +112,6 @@ footer {
     border-width: 6px;
     outline: none;
     font-size: small;
-    margin-left: 0%;
 }
 
 .btn-recipenew {
@@ -129,14 +126,14 @@ footer {
     margin-left: -2%;
 }
 
-
 .btn-submit {
     background-color: darkmagenta;
     color: white;
     font-weight: bold;
     border-color:darkmagenta;
     border-width: 8px;
-    margin-left: 45%;
+    margin-left: 45.5%;
+    margin-right: 55%;
     outline: none;
     margin-top: 0%;
     font-family: 'Purple Purse';
@@ -152,7 +149,7 @@ body {
     background-image: url("../images/brickwall.jpg");
 }
 
-main {
+.results {
     text-align: center;
     text-transform: uppercase;
 }
@@ -192,7 +189,7 @@ main {
     padding-top: 40px;
     padding-left: 30px;
     padding-bottom: 40px;
-    margin-left: 15%;
+    margin-left: 13%;
 }
 
 .results {
@@ -203,13 +200,15 @@ main {
     width: 100%;
     height: 40%;
     image-rendering: optimizeQuality;
-    margin-left: -2%;
+    margin-left: -4%;
     margin-bottom: 2%;
     border-style: outset;
 }
 
 .recipeName {
     text-align: center;
+    font-size: xx-large;
+    margin-top: 15%;
 }
 
 .recipePreptime {
@@ -218,8 +217,7 @@ main {
 
 .posterImg {
     border-style: outset;
-    margin-bottom: 1%;
-    margin-left: 22%;
+    margin-bottom: 3%;
 }
 
 .movieTitle {
