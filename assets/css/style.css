@@ -201,6 +201,16 @@ footer {
     margin-right: 5%;
 }
 
+.btn-saveMovie:hover {
+    background-color: grey;
+    cursor: pointer;
+}
+
+.btn-saveRecipe:hover {
+    background-color: grey;
+    cursor: pointer;
+}
+
 .delete-btn {
     font-size: 1.0rem;
     padding: 2px 2px;
