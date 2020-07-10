@@ -29,7 +29,7 @@ KickBack! is a user-friendly random recipe and movie creator! We have had many n
 * MovieDB API
 
 ## Features
-List of features ready and TODOs for future development
+List of features
 * 'Saved For Later' feature allows you to save recipes or movies for future!
 * Recipe picture links to blog or cookbook with the recipe instructions!
 
