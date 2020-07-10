@@ -81,17 +81,10 @@ footer {
 .options { 
    display: flex;
    margin-bottom: 1%;
+   margin-left: 20%;
+   margin-top: 1%;
 }
-.btn-movie {
-    background-color: teal;
-    color: white;
-    font-weight: bold;
-    border-color: teal;
-    border-style: outset;
-    border-width: 8px;
-    margin-left: 460%;
-    outline: none;
-}
+
 .btn-recipe {
     background-color: teal;
     color: white;
@@ -100,10 +93,9 @@ footer {
     border-style: outset;
     border-width: 8px;
     outline: none;
-    margin-left: 175%;
 }
 
-.btn-movienew {
+.btn-movie {
     background-color: teal;
     color: white;
     font-weight: bold;
