@@ -211,6 +211,11 @@ footer {
     cursor: pointer;
 }
 
+.btn-saveMovie:focus{
+    border-style: inset;
+    outline: none;
+}
+
 .delete-btn {
     font-size: 1.0rem;
     padding: 2px 2px;

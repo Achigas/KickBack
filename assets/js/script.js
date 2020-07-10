@@ -72,6 +72,9 @@ var loadMovies = function () {
 //displays the cards after user hits "save for later"
 var displaySavedRecipes = function (recipeObject) {
     containerSavedRecipesEl.setAttribute("class", "colA col-sm-6 col-md-5 offset-md-5 col-lg-4 offset-lg-1 mb-2")
+    var favoritesHeader = document.createElement("h5");
+    favoritesHeader.textContent = "Favorites"
+    containerSavedRecipesEl.appendChild(favoritesHeader)
 
     //Build cards with recipe data
     var savedRecipeCardEl = document.createElement("div");
@@ -155,6 +158,9 @@ var displaySavedRecipes = function (recipeObject) {
 //displays cards of movies to watch later
 var displaySavedMovies = function (moviearray) {
     containerSavedMoviesEl.setAttribute("class", "colA col-sm-6 col-md-5 offset-md-5 col-lg-4 offset-lg-1 mb-2")
+    var favoritesHeader = document.createElement("h5");
+    favoritesHeader.textContent = "Favorites"
+    containerSavedMoviesEl.appendChild(favoritesHeader)
 
     //create card elements for saved movies 
     var savedMovieCardEl = document.createElement("div");
@@ -483,6 +489,7 @@ var displayFoodRecipe = function(foodId, data) {
     var recipeSourceLink = document.createElement("a");
     var recipeImageEl = document.createElement("img");
     var recipePreptimeEl = document.createElement("p");
+    var recipeInstructionsEl = document.createElement("p");
     
     //add the href to the picture so it links out to the recipe
     recipeSourceLink.setAttribute("href", foodSource)
@@ -490,14 +497,17 @@ var displayFoodRecipe = function(foodId, data) {
     recipeImageEl.setAttribute("class", "recipeImage")
     recipeNameEl.setAttribute("class", "recipeName")
     recipePreptimeEl.setAttribute("class", "recipePreptime")
+    recipeInstructionsEl.setAttribute("class", "recipePreptime")
 
     recipeSourceLink.appendChild(recipeImageEl)
 
     recipeNameEl.textContent = foodTitle;
     recipePreptimeEl.textContent = "Prep time: " + timePrep + "  minutes";
+    recipeInstructionsEl.textContent = "Click picture for recipe."
     
     recipeInfoEl.appendChild(recipeNameEl)
     recipeInfoEl.appendChild(recipePreptimeEl)
+    recipeInfoEl.appendChild(recipeInstructionsEl)
     recipeInfoEl.appendChild(recipeSourceLink)
 
     containerRecipeEl.appendChild(recipeInfoEl)
