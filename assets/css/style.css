@@ -1,3 +1,8 @@
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 .title {
     font-size: 50pt;
     color: white;
@@ -9,7 +14,7 @@
 
 .jumbotron {
     background-color: teal;
-    height: 12.5rem;
+    height: fit-content;
     width: 100%;
 }
 
@@ -38,27 +43,17 @@
 
 #pictures {
     display: flex;
-    margin-left: 5%;
-    margin-right: 7%;
 }
 
-.heroA {
-    width: 50%;
+.hero {
     border-left: solid teal 12px;
     border-top: solid  teal 12px;
     border-right: solid  teal 12px;
     border-bottom: solid  teal 12px;
+    border-radius: 10px;
     image-rendering: optimizeQuality;
-}
-
-.heroB {
-    width: 50%;
-    margin-left: 2%;
-    border-left: solid teal 12px;
-    border-top: solid  teal 12px;
-    border-right: solid  teal 12px;
-    border-bottom: solid  teal 12px;
-    image-rendering: optimizeQuality;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 footer {
@@ -73,62 +68,23 @@ footer {
     text-shadow: black 1px 1px;
 }
 
-.copy {
-    font-size: 8pt;
-}
-
-.options {
-    display: flex;
-    margin-left: 30%;
-    margin-bottom: 1%;
-}
-
-.btn-recipe {
+.btn-choice {
     background-color: teal;
     color: white;
     font-weight: bold;
     border-color: teal;
     border-style: outset;
     border-width: 8px;
-    margin-left: -70%;
     outline: none;
+    border-radius: 10px;
 }
 
-.btn-movie {
-    background-color: teal;
-    color: white;
-    font-weight: bold;
-    border-color: teal;
-    border-style: outset;
-    border-width: 8px;
-    margin-left: 166%;
-    outline: none;
+.btn-choice:hover {
+    -webkit-box-shadow: inset 0px 0px 10px #004080;
+    -moz-box-shadow: inset 0px 0px 10px #004080;
+    box-shadow: inset 0px 0px 10px #004080;
+    cursor: pointer;
 }
-
-.btn-movienew {
-    background-color: teal;
-    color: white;
-    font-weight: bold;
-    border-color: teal;
-    border-style: outset;
-    border-width: 6px;
-    outline: none;
-    font-size: small;
-    margin-left: 0%;
-}
-
-.btn-recipenew {
-    background-color: teal;
-    color: white;
-    font-weight: bold;
-    border-color: teal;
-    border-style: outset;
-    border-width: 6px;
-    outline: none;
-    font-size: small;
-    margin-left: -2%;
-}
-
 
 .btn-submit {
     background-color: darkmagenta;
@@ -136,22 +92,51 @@ footer {
     font-weight: bold;
     border-color:darkmagenta;
     border-width: 8px;
-    margin-left: 45%;
     outline: none;
-    margin-top: 0%;
+    font-size: larger;
     font-family: 'Purple Purse';
 }
 
-.btn-submit:focus{
-    background-color:darkmagenta;
-    background-color: darkmagenta;
+.btn-submit:focus {
+    -webkit-box-shadow: inset 0px 0px 10px #68008b;
+    -moz-box-shadow: inset 0px 0px 10px #68008b;
+    box-shadow: inset 0px 0px 10px #68008b;
     outline: none;
 }
+
+.btn-action {
+    background-color: teal;
+    color: white;
+    font-weight: bold;
+    border-color: teal;
+    border-width: 6px;
+    outline: none;
+    font-size: small;
+    margin-right: 4%;
+}
+
+  .btn-action:focus {
+    background-color: teal;
+    -webkit-box-shadow: inset 0px 0px 10px #004080;
+    -moz-box-shadow: inset 0px 0px 10px #004080;
+    box-shadow: inset 0px 0px 10px #004080;
+     outline: none;
+  }
+
+.delete-btn {
+    font-size: 1.0rem;
+    padding: 2px 2px;
+    margin: 3px;
+    background: teal;
+    color: #fff;
+  }
+  
 
 body {
     background-image: url("../images/brickwall.jpg");
 }
 
+<<<<<<< HEAD
 main {
     text-align: center;
     text-transform: uppercase;
@@ -159,6 +144,12 @@ main {
 
 .row {
     margin-left: -7%;
+=======
+.results {
+    text-align: center;
+    text-transform: uppercase;
+    height: fit-content;
+>>>>>>> feature/back-end-design
 }
 
 .colA {
@@ -169,47 +160,28 @@ main {
     border-right: solid  teal;
     border-bottom: solid  teal;
     border-width: 4px;
-    margin-left: 9%;
     padding-top: 40px;
     padding-left: 30px;
     padding-bottom: 40px;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    color: black;
-    font-weight: bold;
+    color: black; 
+    border-radius: 10px;
 }
 
-.colB {
-    display: inline-block;
-    background-color: lightgray;;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-weight: bold;
-    color: #2b2424;
-    border-left: solid teal;
-    border-top: solid  teal;
-    border-right: solid  teal;
-    border-bottom: solid  teal;
-    border-width: 4px;
-    padding-top: 40px;
-    padding-left: 30px;
-    padding-bottom: 40px;
-    margin-left: 15%;
-}
-
-.results {
-    margin-left: 7%;
-}
 
 .recipeImage {
     width: 100%;
     height: 40%;
     image-rendering: optimizeQuality;
-    margin-left: -2%;
+    margin-left: -4%;
     margin-bottom: 2%;
     border-style: outset;
 }
 
 .recipeName {
     text-align: center;
+    font-size: xx-large;
+    margin-top: 15%;
 }
 
 .recipePreptime {
@@ -218,12 +190,11 @@ main {
 
 .posterImg {
     border-style: outset;
-    margin-bottom: 1%;
-    margin-left: 22%;
+    margin-bottom: 3%;
+    
 }
 
 .movieTitle {
-    text-align: left;
     font-size: xx-large;
     margin-top: 2px;
     text-align: center;
@@ -237,4 +208,20 @@ main {
 .movieExtraInfo {
     margin-top: -1%;
     margin-bottom: 2%;
+}
+
+.card {
+    border-radius: 10px;
+}
+
+
+.saved-card {
+    background-color: teal;
+    border-radius: 15px;
+    margin: 3px;
+}
+
+.saved-card:hover {
+    cursor: pointer;
+    background-color: gray
 }
