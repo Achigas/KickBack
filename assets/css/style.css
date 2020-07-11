@@ -136,20 +136,10 @@ body {
     background-image: url("../images/brickwall.jpg");
 }
 
-<<<<<<< HEAD
-main {
-    text-align: center;
-    text-transform: uppercase;
-}
-
-.row {
-    margin-left: -7%;
-=======
 .results {
     text-align: center;
     text-transform: uppercase;
     height: fit-content;
->>>>>>> feature/back-end-design
 }
 
 .colA {

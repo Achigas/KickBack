@@ -18,7 +18,7 @@ var savedMovies = []
 
 //API Keys
 var APIKeyOMDB = "70f249c8"
-var APIKeySpoon = "2b38497b30584d7d914e0006ce05f848"
+var APIKeySpoon = "1342f319f99f46d582bae8ebd7c7a61e"
 var APIKeyMovieDB = "4ee2048f656df52ca79c1b3928871706"
 
 //save recipes into local storage
@@ -261,10 +261,7 @@ var displayMoviePoster = function (movieTitle, posterId) {
 
     //create div and img elements to hold image
     var posterEl = document.createElement("div")
-<<<<<<< HEAD
-=======
     posterEl.setAttribute("class", "text-center")
->>>>>>> feature/back-end-design
     var movieTitleEl = document.createElement("h3")
     var posterImg = document.createElement("img")
     var movieTitleEl = document.createElement("h3")
@@ -330,7 +327,7 @@ var displayMovieInfo = function (data) {
 
     var newMovieBtn = document.createElement("button")
     newMovieBtn.setAttribute("type", "submit");
-    newMovieBtn.setAttribute("class", "btn-action");
+    newMovieBtn.setAttribute("class", "btn-action col-8 col-lg-4 m-2");
     newMovieBtn.textContent = "New Movie"
     newMovieBtn.addEventListener("click", function () {
         getGenreInfo(document.getElementById("movie-dropdown").value)
@@ -338,7 +335,7 @@ var displayMovieInfo = function (data) {
 
     var saveMovieBtn = document.createElement("button")
     saveMovieBtn.setAttribute("type", "submit");
-    saveMovieBtn.setAttribute("class","btn-action");
+    saveMovieBtn.setAttribute("class","btn-action col-8 col-lg-4 m-2");
     saveMovieBtn.textContent = "Save for Later"
     saveMovieBtn.addEventListener("click", function() {
 
@@ -526,7 +523,7 @@ var displayFoodRecipe = function(foodId, data) {
 
     var newRecipeBtn = document.createElement("button")
     newRecipeBtn.setAttribute("type", "submit");
-    newRecipeBtn.setAttribute("class", "btn-action");
+    newRecipeBtn.setAttribute("class", "btn-action col-8 col-lg-4 m-2");
     newRecipeBtn.textContent = "New Recipe"
     newRecipeBtn.addEventListener("click", function () {
         getRandomRecipe(document.getElementById("recipe-dropdown").value)
@@ -534,7 +531,7 @@ var displayFoodRecipe = function(foodId, data) {
 
     var saveRecipeBtn = document.createElement("button")
     saveRecipeBtn.setAttribute("type", "submit");
-    saveRecipeBtn.setAttribute("class", "btn-action");
+    saveRecipeBtn.setAttribute("class", "btn-action col-8 col-lg-4 m-2");
     saveRecipeBtn.textContent = "Save for Later"
     saveRecipeBtn.addEventListener("click", function() {
         //added logic so you can't save twice
@@ -553,15 +550,7 @@ var displayFoodRecipe = function(foodId, data) {
     });
     
     containerRecipeEl.appendChild(saveRecipeBtn)
-
     containerRecipeEl.appendChild(newRecipeBtn)
-<<<<<<< HEAD
-
-
-    containerRecipeEl.appendChild(newRecipeBtn)
-    pictures.style.display = "none"
-=======
->>>>>>> feature/back-end-design
 
 }
 
@@ -577,10 +566,6 @@ var generateRandRecMov = function(choiceMov, choiceRec) {
         }
 
         if (!choiceMov) {
-<<<<<<< HEAD
-            console.log("hi")
-=======
->>>>>>> feature/back-end-design
             document.getElementById("modal").style.display = "block";
             document.getElementById("modalText").innerHTML = "Please choose a movie genre!";
             return
@@ -595,13 +580,8 @@ var generateRandRecMov = function(choiceMov, choiceRec) {
     
 
     pictures.style.display = "none"
-<<<<<<< HEAD
-    containerRecipeEl.setAttribute("class","colA col-sm-6 col-md-5 offset-md-5 col-lg-4 offset-lg-1 mb-2")
-    containerMovieEl.setAttribute("class", "colB col-sm-6 col-md-5 offset-md-5 col-lg-4 offset-lg-1 mb-2")
-=======
     containerRecipeEl.setAttribute("class","colA col-10 col-md-8 col-xl-5 m-2")
     containerMovieEl.setAttribute("class", "colA col-10 col-md-8 col-xl-5 m-2")
->>>>>>> feature/back-end-design
 
     getRandomRecipe(choiceRec);
     getGenreInfo(choiceMov);
@@ -618,11 +598,7 @@ buttonKickback.addEventListener("click", function () {
     generateRandRecMov(choiceMovie, choiceRecipe)
 });
 
-<<<<<<< HEAD
-// X button and CLOSE button
-=======
 // X button and CLOSE button on modals
->>>>>>> feature/back-end-design
 var button = document.getElementById("close");
 button.onclick = function() {
     var div = document.getElementById("modal");
@@ -637,8 +613,4 @@ button.onclick = function() {
     if (div.style.display !== "none") {
         div.style.display = "none";
     }
-<<<<<<< HEAD
 };
-=======
-};
->>>>>>> feature/back-end-design
