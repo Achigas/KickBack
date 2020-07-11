@@ -71,10 +71,13 @@ var loadMovies = function () {
 
 //displays the cards after user hits "save for later"
 var displaySavedRecipes = function (recipeObject) {
-    containerSavedRecipesEl.setAttribute("class", "colA col-sm-6 col-md-5 offset-md-5 col-lg-4 offset-lg-1 mb-2")
+    containerSavedRecipesEl.setAttribute("class", "colA col-10 col-md-8 col-lg-4 m-2")
+
+    if (!containerSavedRecipesEl.firstChild) {
     var favoritesHeader = document.createElement("h5");
     favoritesHeader.textContent = "Favorites"
     containerSavedRecipesEl.appendChild(favoritesHeader)
+    }
 
     //Build cards with recipe data
     var savedRecipeCardEl = document.createElement("div");
@@ -118,8 +121,8 @@ var displaySavedRecipes = function (recipeObject) {
 
         //handles display if clicked without using Kickback button yet
         pictures.style.display = "none"
-        containerRecipeEl.setAttribute("class","colA col-sm-6 col-md-5 offset-md-5 col-lg-4 offset-lg-1 mb-2")
-        containerMovieEl.setAttribute("class", "colB col-sm-6 col-md-5 offset-md-5 col-lg-4 offset-lg-1 mb-2")
+        containerRecipeEl.setAttribute("class","colA col-10 col-md-8 col-lg-4 m-2")
+        containerMovieEl.setAttribute("class", "colB col-10 col-md-8 col-lg-4 m-2")
 
         //if user clicks a card, it will load a Comedy movie if genre value is blank
         if (!dropdownMovieEl.value) {
@@ -157,10 +160,13 @@ var displaySavedRecipes = function (recipeObject) {
 }
 //displays cards of movies to watch later
 var displaySavedMovies = function (moviearray) {
-    containerSavedMoviesEl.setAttribute("class", "colA col-sm-6 col-md-5 offset-md-5 col-lg-4 offset-lg-1 mb-2")
+    containerSavedMoviesEl.setAttribute("class", "colB col-10 col-md-8 col-lg-4 m-2")
+    
+    if (!containerSavedMoviesEl.firstChild) {
     var favoritesHeader = document.createElement("h5");
     favoritesHeader.textContent = "Favorites"
     containerSavedMoviesEl.appendChild(favoritesHeader)
+    }
 
     //create card elements for saved movies 
     var savedMovieCardEl = document.createElement("div");
@@ -205,8 +211,8 @@ var displaySavedMovies = function (moviearray) {
 
         //handles display if clicked without using Kickback button yet
         pictures.style.display = "none"
-        containerRecipeEl.setAttribute("class","colA col-sm-6 col-md-5 offset-md-5 col-lg-4 offset-lg-1 mb-2")
-        containerMovieEl.setAttribute("class", "colB col-sm-6 col-md-5 offset-md-5 col-lg-4 offset-lg-1 mb-2")
+        containerRecipeEl.setAttribute("class","colA col-10 col-md-8 col-lg-4 m-2")
+        containerMovieEl.setAttribute("class", "colB col-10 col-md-8 col-lg-4 m-2")
 
         //depending on value in dropdown when card is clicked, run code or enter Chinese for user efficiency
         if (!dropdownRecipeEl.value) {
@@ -254,6 +260,7 @@ var displayMoviePoster = function (movieTitle, posterId) {
 
     //create div and img elements to hold image
     var posterEl = document.createElement("div")
+    posterEl.setAttribute("class", "text-center")
     var movieTitleEl = document.createElement("h3")
     var posterImg = document.createElement("img")
     var movieTitleEl = document.createElement("h3")
@@ -317,17 +324,17 @@ var displayMovieInfo = function (data) {
     //append to movie container
     containerMovieEl.appendChild(movieInfoEl)
 
-    var newMovieBtn = document.createElement("btn")
+    var newMovieBtn = document.createElement("button")
     newMovieBtn.setAttribute("type", "submit");
-    newMovieBtn.setAttribute("class", "btn-movienew");
+    newMovieBtn.setAttribute("class", "btn-action");
     newMovieBtn.textContent = "New Movie"
     newMovieBtn.addEventListener("click", function () {
         getGenreInfo(document.getElementById("movie-dropdown").value)
     })
 
-    var saveMovieBtn = document.createElement("btn")
+    var saveMovieBtn = document.createElement("button")
     saveMovieBtn.setAttribute("type", "submit");
-    saveMovieBtn.setAttribute("class","btn-saveMovie");
+    saveMovieBtn.setAttribute("class","btn-action");
     saveMovieBtn.textContent = "Save for Later"
     saveMovieBtn.addEventListener("click", function() {
 
@@ -448,6 +455,7 @@ var getRandomRecipe = function (cuisineType) {
             randomFoodId = Math.floor(Math.random() * Math.floor(100))
 
             var foodId = data.results[randomFoodId].id;
+            console.log(foodId)
            
             getRecipeInfo(foodId);
         })
@@ -512,17 +520,17 @@ var displayFoodRecipe = function(foodId, data) {
 
     containerRecipeEl.appendChild(recipeInfoEl)
 
-    var newRecipeBtn = document.createElement("btn")
+    var newRecipeBtn = document.createElement("button")
     newRecipeBtn.setAttribute("type", "submit");
-    newRecipeBtn.setAttribute("class", "btn-recipenew");
+    newRecipeBtn.setAttribute("class", "btn-action");
     newRecipeBtn.textContent = "New Recipe"
     newRecipeBtn.addEventListener("click", function () {
         getRandomRecipe(document.getElementById("recipe-dropdown").value)
     })
 
-    var saveRecipeBtn = document.createElement("btn")
+    var saveRecipeBtn = document.createElement("button")
     saveRecipeBtn.setAttribute("type", "submit");
-    saveRecipeBtn.setAttribute("class", "btn-saveRecipe");
+    saveRecipeBtn.setAttribute("class", "btn-action");
     saveRecipeBtn.textContent = "Save for Later"
     saveRecipeBtn.addEventListener("click", function() {
         //added logic so you can't save twice
@@ -572,8 +580,8 @@ var generateRandRecMov = function(choiceMov, choiceRec) {
     
 
     pictures.style.display = "none"
-    containerRecipeEl.setAttribute("class","colA col-sm-6 col-md-5 offset-md-5 col-lg-4 offset-lg-1 mb-2")
-    containerMovieEl.setAttribute("class", "colB col-sm-6 col-md-5 offset-md-5 col-lg-4 offset-lg-1 mb-2")
+    containerRecipeEl.setAttribute("class","colA col-10 col-md-8 col-lg-4 m-2")
+    containerMovieEl.setAttribute("class", "colB col-10 col-md-8 col-lg-4 m-2")
 
     getRandomRecipe(choiceRec);
     getGenreInfo(choiceMov);

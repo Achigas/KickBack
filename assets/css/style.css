@@ -14,7 +14,7 @@ html, body {
 
 .jumbotron {
     background-color: teal;
-    height: 12.5rem;
+    height: fit-content;
     width: 100%;
 }
 
@@ -85,7 +85,7 @@ footer {
    margin-top: 1%;
 }
 
-.btn-recipe {
+.btn-choice {
     background-color: teal;
     color: white;
     font-weight: bold;
@@ -93,52 +93,14 @@ footer {
     border-style: outset;
     border-width: 8px;
     outline: none;
+    border-radius: 10px;
 }
 
-.btn-movie {
-    background-color: teal;
-    color: white;
-    font-weight: bold;
-    border-color: teal;
-    border-style: outset;
-    border-width: 8px;
-    outline: none;
-    margin-left: 40%;
-}
-
-.btn-movie:hover {
-    background-color: grey;
+.btn-choice:hover {
+    -webkit-box-shadow: inset 0px 0px 10px #004080;
+    -moz-box-shadow: inset 0px 0px 10px #004080;
+    box-shadow: inset 0px 0px 10px #004080;
     cursor: pointer;
-}
-
-.btn-recipe:hover {
-    background-color: grey;
-    cursor: pointer;
-}
-
-.btn-movienew {
-    background-color: teal;
-    color: white;
-    font-weight: bold;
-    border-color: teal;
-    border-style: outset;
-    border-width: 6px;
-    outline: none;
-    font-size: small;
-    margin-right: 4%;
-}
-
-.btn-recipenew {
-    background-color: teal;
-    color: white;
-    font-weight: bold;
-    border-color: teal;
-    border-style: outset;
-    border-width: 6px;
-    outline: none;
-    font-size: small;
-    margin-left: -2%;
-    margin-right: 4%;
 }
 
 .btn-submit {
@@ -147,74 +109,36 @@ footer {
     font-weight: bold;
     border-color:darkmagenta;
     border-width: 8px;
-    margin-left: 45.5%;
-    margin-right: 55%;
     outline: none;
-    margin-top: 0%;
     font-size: larger;
     font-family: 'Purple Purse';
 }
 
-.btn-submit:focus{
-    background-color:darkmagenta;
-    background-color: darkmagenta;
+.btn-submit:focus {
+    -webkit-box-shadow: inset 0px 0px 10px #68008b;
+    -moz-box-shadow: inset 0px 0px 10px #68008b;
+    box-shadow: inset 0px 0px 10px #68008b;
     outline: none;
 }
 
-.btn-movienew:hover {
-    background-color: grey;
-    cursor: pointer;
-}
-
-
-.btn-recipenew:hover {
-    background-color: grey;
-    cursor: pointer;
-}
-
-.btn-submit:hover {
-    background-color: grey;
-    cursor: pointer;
-}
-
-.btn-saveRecipe {
+.btn-action {
     background-color: teal;
     color: white;
     font-weight: bold;
     border-color: teal;
-    border-style: outset;
     border-width: 6px;
     outline: none;
     font-size: small;
-    margin-right: 5%;
+    margin-right: 4%;
 }
 
-.btn-saveMovie {
+  .btn-action:focus {
     background-color: teal;
-    color: white;
-    font-weight: bold;
-    border-color: teal;
-    border-style: outset;
-    border-width: 6px;
-    outline: none;
-    font-size: small;
-    margin-right: 5%;
-}
-
-.btn-saveMovie:hover {
-    background-color: grey;
-    cursor: pointer;
-}
-
-.btn-saveRecipe:hover {
-    background-color: grey;
-    cursor: pointer;
-}
-
-.btn-saveMovie:focus{
-    border-style: inset;
-    outline: none;
-}
+    -webkit-box-shadow: inset 0px 0px 10px #004080;
+    -moz-box-shadow: inset 0px 0px 10px #004080;
+    box-shadow: inset 0px 0px 10px #004080;
+     outline: none;
+  }
 
 .delete-btn {
     font-size: 1.0rem;
@@ -277,10 +201,10 @@ body {
 .posterImg {
     border-style: outset;
     margin-bottom: 3%;
+    
 }
 
 .movieTitle {
-    text-align: left;
     font-size: xx-large;
     margin-top: 2px;
     text-align: center;
