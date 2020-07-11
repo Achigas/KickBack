@@ -43,27 +43,16 @@ html, body {
 
 #pictures {
     display: flex;
-    margin-left: 5%;
-    margin-right: 7%;
 }
 
-.heroA {
-    width: 50%;
+.hero {
     border-left: solid teal 12px;
     border-top: solid  teal 12px;
     border-right: solid  teal 12px;
     border-bottom: solid  teal 12px;
     image-rendering: optimizeQuality;
-}
-
-.heroB {
-    width: 50%;
-    margin-left: 2%;
-    border-left: solid teal 12px;
-    border-top: solid  teal 12px;
-    border-right: solid  teal 12px;
-    border-bottom: solid  teal 12px;
-    image-rendering: optimizeQuality;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 footer {
@@ -76,13 +65,6 @@ footer {
     height: 30px;
     padding-top: 3px;
     text-shadow: black 1px 1px;
-}
-
-.options { 
-   display: flex;
-   margin-bottom: 1%;
-   margin-left: 20%;
-   margin-top: 1%;
 }
 
 .btn-choice {
@@ -156,14 +138,10 @@ body {
 .results {
     text-align: center;
     text-transform: uppercase;
-    margin-left: 12%;
+    height: fit-content;
 }
 
-.row {
-    margin-left: -7%;
-}
-
-.colA, .colB {
+.colA {
     display: inline-block;
     background-color: lightgray;
     border-left: solid teal;
@@ -175,7 +153,7 @@ body {
     padding-left: 30px;
     padding-bottom: 40px;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    color: black;
+    color: black; 
 }
 
 

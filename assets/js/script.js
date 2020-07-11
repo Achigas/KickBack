@@ -71,11 +71,11 @@ var loadMovies = function () {
 
 //displays the cards after user hits "save for later"
 var displaySavedRecipes = function (recipeObject) {
-    containerSavedRecipesEl.setAttribute("class", "colA col-10 col-md-8 col-lg-4 m-2")
+    containerSavedRecipesEl.setAttribute("class", "colA col-10 col-md-8 col-xl-5 m-2")
 
     if (!containerSavedRecipesEl.firstChild) {
     var favoritesHeader = document.createElement("h5");
-    favoritesHeader.textContent = "Favorites"
+    favoritesHeader.textContent = "Favorite Recipes"
     containerSavedRecipesEl.appendChild(favoritesHeader)
     }
 
@@ -121,8 +121,8 @@ var displaySavedRecipes = function (recipeObject) {
 
         //handles display if clicked without using Kickback button yet
         pictures.style.display = "none"
-        containerRecipeEl.setAttribute("class","colA col-10 col-md-8 col-lg-4 m-2")
-        containerMovieEl.setAttribute("class", "colB col-10 col-md-8 col-lg-4 m-2")
+        containerRecipeEl.setAttribute("class","colA col-10 col-md-8 col-xl-5 m-2")
+        containerMovieEl.setAttribute("class", "colA col-10 col-md-8 col-xl-5 m-2")
 
         //if user clicks a card, it will load a Comedy movie if genre value is blank
         if (!dropdownMovieEl.value) {
@@ -160,11 +160,11 @@ var displaySavedRecipes = function (recipeObject) {
 }
 //displays cards of movies to watch later
 var displaySavedMovies = function (moviearray) {
-    containerSavedMoviesEl.setAttribute("class", "colB col-10 col-md-8 col-lg-4 m-2")
+    containerSavedMoviesEl.setAttribute("class", "colA col-10 col-md-8 col-xl-5 m-2")
     
     if (!containerSavedMoviesEl.firstChild) {
     var favoritesHeader = document.createElement("h5");
-    favoritesHeader.textContent = "Favorites"
+    favoritesHeader.textContent = "Favorite Movies"
     containerSavedMoviesEl.appendChild(favoritesHeader)
     }
 
@@ -211,8 +211,8 @@ var displaySavedMovies = function (moviearray) {
 
         //handles display if clicked without using Kickback button yet
         pictures.style.display = "none"
-        containerRecipeEl.setAttribute("class","colA col-10 col-md-8 col-lg-4 m-2")
-        containerMovieEl.setAttribute("class", "colB col-10 col-md-8 col-lg-4 m-2")
+        containerRecipeEl.setAttribute("class","colA col-10 col-md-8 col-xl-5 m-2")
+        containerMovieEl.setAttribute("class", "colA col-10 col-md-8 col-xl-5 m-2")
 
         //depending on value in dropdown when card is clicked, run code or enter Chinese for user efficiency
         if (!dropdownRecipeEl.value) {
@@ -580,8 +580,8 @@ var generateRandRecMov = function(choiceMov, choiceRec) {
     
 
     pictures.style.display = "none"
-    containerRecipeEl.setAttribute("class","colA col-10 col-md-8 col-lg-4 m-2")
-    containerMovieEl.setAttribute("class", "colB col-10 col-md-8 col-lg-4 m-2")
+    containerRecipeEl.setAttribute("class","colA col-10 col-md-8 col-xl-5 m-2")
+    containerMovieEl.setAttribute("class", "colA col-10 col-md-8 col-xl-5 m-2")
 
     getRandomRecipe(choiceRec);
     getGenreInfo(choiceMov);
