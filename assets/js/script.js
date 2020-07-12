@@ -448,7 +448,7 @@ var getMovieInfo = function (movieId) {
 
 //call to OMDB for cleaner data and synopsis 
 var getIMDBinfo = function (idIMDB) {
-    var getMovieInfoIMDBUrl = "http://www.omdbapi.com/?i=" + idIMDB + "&apikey=" + APIKeyOMDB;
+    var getMovieInfoIMDBUrl = "https://www.omdbapi.com/?i=" + idIMDB + "&apikey=" + APIKeyOMDB;
     fetch(getMovieInfoIMDBUrl).then(function(response) {
         response.json().then(function(data) {
 
