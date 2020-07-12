@@ -551,7 +551,7 @@ var displayFoodRecipe = function(foodId, data) {
     
     containerRecipeEl.appendChild(saveRecipeBtn)
     containerRecipeEl.appendChild(newRecipeBtn)
-    pictures.style.display = "none"
+
 }
 
 var generateRandRecMov = function(choiceMov, choiceRec) {
@@ -598,7 +598,6 @@ buttonKickback.addEventListener("click", function () {
     generateRandRecMov(choiceMovie, choiceRecipe)
 });
 
-
 // X button and CLOSE button on modals
 var button = document.getElementById("close");
 button.onclick = function() {
@@ -615,4 +614,3 @@ button.onclick = function() {
         div.style.display = "none";
     }
 };
-
