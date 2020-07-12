@@ -43,9 +43,9 @@ Minimum Viable Product is complete. Enhancements are in progress.
 ## Inspiration
 The developers of KickBack! : 
 
-Jackelin Salinas
-Rochelle Ruiz
-Braiana daMota
-Alex Chigas
+* Jackelin Salinas
+* Rochelle Ruiz
+* Briana daMota
+* Alex Chigas
 
 We were inspired to create an application that was user-friendly with plenty of opportunties for growth! 
