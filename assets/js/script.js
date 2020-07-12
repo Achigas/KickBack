@@ -274,8 +274,6 @@ var displayMoviePoster = function (movieTitle, posterId) {
 
     //posterId identifies unique poster identifier for movie
     var posterUrl = "https://image.tmdb.org/t/p/w200/" + posterId
-    console.log(posterUrl)
-
 
     //create div and img elements to hold image
     var posterEl = document.createElement("div")
@@ -474,7 +472,6 @@ var getRandomRecipe = function (cuisineType) {
             randomFoodId = Math.floor(Math.random() * Math.floor(100))
 
             var foodId = data.results[randomFoodId].id;
-            console.log(foodId)
            
             getRecipeInfo(foodId);
         })
