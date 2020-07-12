@@ -14,7 +14,7 @@ html, body {
 
 .jumbotron {
     background-color: teal;
-    height: 12.5rem;
+    height: fit-content;
     width: 100%;
 }
 
@@ -43,27 +43,17 @@ html, body {
 
 #pictures {
     display: flex;
-    margin-left: 5%;
-    margin-right: 7%;
 }
 
-.heroA {
-    width: 50%;
+.hero {
     border-left: solid teal 12px;
     border-top: solid  teal 12px;
     border-right: solid  teal 12px;
     border-bottom: solid  teal 12px;
+    border-radius: 10px;
     image-rendering: optimizeQuality;
-}
-
-.heroB {
-    width: 50%;
-    margin-left: 2%;
-    border-left: solid teal 12px;
-    border-top: solid  teal 12px;
-    border-right: solid  teal 12px;
-    border-bottom: solid  teal 12px;
-    image-rendering: optimizeQuality;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 footer {
@@ -78,29 +68,7 @@ footer {
     text-shadow: black 1px 1px;
 }
 
-.options { 
-   display: flex;
-   margin-bottom: 1%;
-<<<<<<< HEAD
-=======
-   margin-left: 20%;
-   margin-top: 1%;
->>>>>>> d8093d2b402efdd4f2d2511e7052b5df51d5b7d1
-}
-.btn-movie {
-    background-color: teal;
-    color: white;
-    font-weight: bold;
-    border-color: teal;
-    border-style: outset;
-    border-width: 8px;
-<<<<<<< HEAD
-    margin-left: 460%;
-=======
->>>>>>> d8093d2b402efdd4f2d2511e7052b5df51d5b7d1
-    outline: none;
-}
-.btn-recipe {
+.btn-choice {
     background-color: teal;
     color: white;
     font-weight: bold;
@@ -108,49 +76,14 @@ footer {
     border-style: outset;
     border-width: 8px;
     outline: none;
-<<<<<<< HEAD
-    margin-left: 175%;
-=======
-    margin-left: 40%;
+    border-radius: 10px;
 }
 
-.btn-movie:hover {
-    background-color: grey;
+.btn-choice:hover {
+    -webkit-box-shadow: inset 0px 0px 10px #004080;
+    -moz-box-shadow: inset 0px 0px 10px #004080;
+    box-shadow: inset 0px 0px 10px #004080;
     cursor: pointer;
-}
-
-.btn-recipe:hover {
-    background-color: grey;
-    cursor: pointer;
->>>>>>> d8093d2b402efdd4f2d2511e7052b5df51d5b7d1
-}
-
-.btn-movienew {
-    background-color: teal;
-    color: white;
-    font-weight: bold;
-    border-color: teal;
-    border-style: outset;
-    border-width: 6px;
-    outline: none;
-    font-size: small;
-<<<<<<< HEAD
-=======
-    margin-right: 4%;
->>>>>>> d8093d2b402efdd4f2d2511e7052b5df51d5b7d1
-}
-
-.btn-recipenew {
-    background-color: teal;
-    color: white;
-    font-weight: bold;
-    border-color: teal;
-    border-style: outset;
-    border-width: 6px;
-    outline: none;
-    font-size: small;
-    margin-left: -2%;
-    margin-right: 4%;
 }
 
 .btn-submit {
@@ -159,74 +92,36 @@ footer {
     font-weight: bold;
     border-color:darkmagenta;
     border-width: 8px;
-    margin-left: 45.5%;
-    margin-right: 55%;
     outline: none;
-    margin-top: 0%;
     font-size: larger;
     font-family: 'Purple Purse';
 }
 
-.btn-submit:focus{
-    background-color:darkmagenta;
-    background-color: darkmagenta;
+.btn-submit:focus {
+    -webkit-box-shadow: inset 0px 0px 10px #68008b;
+    -moz-box-shadow: inset 0px 0px 10px #68008b;
+    box-shadow: inset 0px 0px 10px #68008b;
     outline: none;
 }
 
-.btn-movienew:hover {
-    background-color: grey;
-    cursor: pointer;
-}
-
-
-.btn-recipenew:hover {
-    background-color: grey;
-    cursor: pointer;
-}
-
-.btn-submit:hover {
-    background-color: grey;
-    cursor: pointer;
-}
-
-.btn-saveRecipe {
+.btn-action {
     background-color: teal;
     color: white;
     font-weight: bold;
     border-color: teal;
-    border-style: outset;
     border-width: 6px;
     outline: none;
     font-size: small;
-    margin-right: 5%;
+    margin-right: 4%;
 }
 
-.btn-saveMovie {
+  .btn-action:focus {
     background-color: teal;
-    color: white;
-    font-weight: bold;
-    border-color: teal;
-    border-style: outset;
-    border-width: 6px;
-    outline: none;
-    font-size: small;
-    margin-right: 5%;
-}
-
-.btn-saveMovie:hover {
-    background-color: grey;
-    cursor: pointer;
-}
-
-.btn-saveRecipe:hover {
-    background-color: grey;
-    cursor: pointer;
-}
-
-.btn-saveMovie:focus{
-    border-style: inset;
-    outline: none;
-}
+    -webkit-box-shadow: inset 0px 0px 10px #004080;
+    -moz-box-shadow: inset 0px 0px 10px #004080;
+    box-shadow: inset 0px 0px 10px #004080;
+     outline: none;
+  }
 
 .delete-btn {
     font-size: 1.0rem;
@@ -234,6 +129,7 @@ footer {
     margin: 3px;
     background: teal;
     color: #fff;
+    line-height: 2.0;
   }
   
 
@@ -244,17 +140,10 @@ body {
 .results {
     text-align: center;
     text-transform: uppercase;
-<<<<<<< HEAD
-=======
-    margin-left: 12%;
->>>>>>> d8093d2b402efdd4f2d2511e7052b5df51d5b7d1
+    height: fit-content;
 }
 
-.row {
-    margin-left: -7%;
-}
-
-.colA, .colB {
+.colA {
     display: inline-block;
     background-color: lightgray;
     border-left: solid teal;
@@ -266,28 +155,8 @@ body {
     padding-left: 30px;
     padding-bottom: 40px;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    color: black;
-<<<<<<< HEAD
-    font-weight: bold;
-}
-
-.colB {
-    display: inline-block;
-    background-color: lightgray;;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-weight: bold;
-    color: #2b2424;
-    border-left: solid teal;
-    border-top: solid  teal;
-    border-right: solid  teal;
-    border-bottom: solid  teal;
-    border-width: 4px;
-    padding-top: 40px;
-    padding-left: 30px;
-    padding-bottom: 40px;
-    margin-left: 13%;
-=======
->>>>>>> d8093d2b402efdd4f2d2511e7052b5df51d5b7d1
+    color: black; 
+    border-radius: 10px;
 }
 
 
@@ -313,10 +182,10 @@ body {
 .posterImg {
     border-style: outset;
     margin-bottom: 3%;
+    
 }
 
 .movieTitle {
-    text-align: left;
     font-size: xx-large;
     margin-top: 2px;
     text-align: center;
@@ -347,3 +216,17 @@ body {
     cursor: pointer;
     background-color: gray
 }
+
+/* MEDIA QUERY FOR TABLETS AND SMALLER */
+@media screen and (max-width: 768px) {
+
+    .delete-btn {
+        line-height: 3.0;
+    }
+
+    .btn-action {
+        line-height: 2.5;
+    }
+
+}
+
