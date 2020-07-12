@@ -15,7 +15,7 @@ Lockdown has you down? Plan a randomly-generated night in with Kickback!
 KickBack! is a user-friendly random recipe and movie creator! We have had many nights in this year, and routines can get stale. Also, it can be hard to make a decision on which movies to watch. We've taken that difficulty away with KickBack! 
 
 ## Screenshots
-![Kickback! Screenshot](./img/screenshot.png)
+![Kickback! Screenshot](./assets/images/Kickback_ScreenShot.png)
 
 ## URL
 [Kickback!](https://achigas.github.io/KickBack/)
