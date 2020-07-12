@@ -2,6 +2,7 @@ var containerMovieEl = document.getElementById("movie-container")
 var containerRecipeEl = document.getElementById("recipe-container")
 var dropdownRecipeEl = document.getElementById("recipe-dropdown")
 var dropdownMovieEl = document.getElementById("movie-dropdown")
+var containerSavedEl = document.getElementById("saved-container")
 var containerSavedMoviesEl = document.getElementById("saved-movies")
 var containerSavedRecipesEl = document.getElementById("saved-recipes")
 var containerRecButtons = document.getElementById("recipe-buttons")
@@ -71,13 +72,22 @@ var loadMovies = function () {
 
 //displays the cards after user hits "save for later"!
 var displaySavedRecipes = function (recipeObject) {
+
+    containerSavedMoviesEl.setAttribute("class", "colA col-10 col-md-8 col-xl-5 m-2")
     containerSavedRecipesEl.setAttribute("class", "colA col-10 col-md-8 col-xl-5 m-2")
+
 
     if (!containerSavedRecipesEl.firstChild) {
     var favoritesHeader = document.createElement("h5");
     favoritesHeader.textContent = "Favorite Recipes"
     containerSavedRecipesEl.appendChild(favoritesHeader)
     }
+
+    if (!containerSavedMoviesEl.firstChild) {
+        var favoritesHeader = document.createElement("h5");
+        favoritesHeader.textContent = "Favorite Movies"
+        containerSavedMoviesEl.appendChild(favoritesHeader)
+        }
 
     //Build cards with recipe data
     var savedRecipeCardEl = document.createElement("div");
@@ -161,12 +171,20 @@ var displaySavedRecipes = function (recipeObject) {
 //displays cards of movies to watch later
 var displaySavedMovies = function (moviearray) {
     containerSavedMoviesEl.setAttribute("class", "colA col-10 col-md-8 col-xl-5 m-2")
+    containerSavedRecipesEl.setAttribute("class", "colA col-10 col-md-8 col-xl-5 m-2")
+
     
     if (!containerSavedMoviesEl.firstChild) {
     var favoritesHeader = document.createElement("h5");
     favoritesHeader.textContent = "Favorite Movies"
     containerSavedMoviesEl.appendChild(favoritesHeader)
     }
+
+    if (!containerSavedRecipesEl.firstChild) {
+        var favoritesHeader = document.createElement("h5");
+        favoritesHeader.textContent = "Favorite Recipes"
+        containerSavedRecipesEl.appendChild(favoritesHeader)
+        }
 
     //create card elements for saved movies 
     var savedMovieCardEl = document.createElement("div");
