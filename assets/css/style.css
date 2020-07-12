@@ -129,6 +129,7 @@ footer {
     margin: 3px;
     background: teal;
     color: #fff;
+    line-height: 2.0;
   }
   
 
@@ -214,4 +215,17 @@ body {
 .saved-card:hover {
     cursor: pointer;
     background-color: gray
+}
+
+/* MEDIA QUERY FOR TABLETS AND SMALLER */
+@media screen and (max-width: 768px) {
+
+    .delete-btn {
+        line-height: 3.0;
+    }
+
+    .btn-action {
+        line-height: 2.5;
+    }
+
 }
