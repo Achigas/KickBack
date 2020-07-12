@@ -143,6 +143,8 @@ body {
     height: fit-content;
 }
 
+/*all columns */
+
 .colA {
     display: inline-block;
     background-color: lightgray;
