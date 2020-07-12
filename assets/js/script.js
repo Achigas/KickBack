@@ -145,7 +145,7 @@ var displaySavedRecipes = function (recipeObject) {
 
         
         //set array to current recipe data
-        recipes = {
+        recipes = { 
             id: recipeObject.id,
             title: recipeObject.title,
             cuisine: recipeObject.cuisine
@@ -346,7 +346,7 @@ var displayMovieInfo = function (data) {
     newMovieBtn.setAttribute("class", "btn-action col-8 col-lg-4 m-2");
     newMovieBtn.textContent = "New Movie"
     newMovieBtn.addEventListener("click", function () {
-        getGenreInfo(document.getElementById("movie-dropdown").value)
+        getGenreInfo(dropdownMovieEl.value)
     })
 
     var saveMovieBtn = document.createElement("button")
@@ -541,7 +541,7 @@ var displayFoodRecipe = function(foodId, data) {
     newRecipeBtn.setAttribute("class", "btn-action col-8 col-lg-4 m-2");
     newRecipeBtn.textContent = "New Recipe"
     newRecipeBtn.addEventListener("click", function () {
-        getRandomRecipe(document.getElementById("recipe-dropdown").value)
+        getRandomRecipe(dropdownRecipeEl.value)
     })
 
     var saveRecipeBtn = document.createElement("button")
@@ -608,8 +608,8 @@ loadRecipes()
 
 //button click 
 buttonKickback.addEventListener("click", function () {
-    var choiceMovie = document.getElementById("movie-dropdown").value;
-    var choiceRecipe = document.getElementById("recipe-dropdown").value;
+    var choiceMovie = dropdownMovieEl.value;
+    var choiceRecipe = dropdownRecipeEl.value;
     generateRandRecMov(choiceMovie, choiceRecipe)
 });
 
