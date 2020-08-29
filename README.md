@@ -1,4 +1,4 @@
-# KickBack
+# KickBack!
 Lockdown has you down? Plan a randomly-generated night in with Kickback!  
 
 
@@ -38,7 +38,10 @@ To-do list:
 * Add API to let you know where movies can be watched.
 
 ## Status
-Minimum Viable Product is complete. Enhancements are in progress. 
+Minimum Viable Product is complete. Enhancements are in progress.
+
+## Presentation Materials
+https://drive.google.com/file/d/1OzeQdWbv_Ikj2O6ac9heYt-R0j3agRX9/view?usp=sharing
 
 ## Inspiration
 The developers of KickBack! : 
